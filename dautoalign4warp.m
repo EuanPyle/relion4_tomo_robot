@@ -6,9 +6,6 @@ function dautoalign4warp(apix, fiducial_diameter_nm, nominal_rotation_angle, wor
     dir_flags = [files.isdir];
     directories = files(dir_flags);
     
-    PATH = getenv('PATH');
-    setenv('PATH', [PATH ':/home/aburt/bin/bash:/home/aburt/bin/python']);
-    
     for i = 1:length(directories)
         basename = directories(i).name;
         stack = fullfile(basename, [basename, '.st']);
