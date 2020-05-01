@@ -3,6 +3,11 @@
 2. Navigate to the 'imod' directory warp created and run 
 `dautoalign4warp`
 3. Import the results into warp and generate your tomograms!
+4. (optional) Create a Dynamo catalogue to pick particles
+
+# Motivation
+- Robust, automated tilt-series alignment of stacks created by Warp
+- Ability to easily use Warp reconstructions with the geometrical particle picking in Dynamo
 
 `dautoalign4warp` is a function for...
 - Automated robust fiducial detection using Dynamo
@@ -30,19 +35,20 @@ If so, you may want to use the `warp2catalogue` script to quickly set up a <a hr
 
 
 ## Installation
-### Requirements
+#### Requirements
 Dynamo 1.1.478 or later, activated in MATLAB
 IMOD (tested on 4.10.35)
 
-### Clone repository
+#### Clone repository
 Download this repository or run
 `git clone https://github.com/alisterburt/autoalign_dynamo.git` from the command line in the install location
 
-### Add necessary files to PATH
-Add the install location to your PATH variable in MATLAB
+#### Add necessary files to PATH
+Add the install location to your PATH variable in MATLAB and your MATLAB path
 ```
 PATH = getenv('PATH');
-setenv('PATH', [PATH ':/path/to/installation/location'])
+setenv('PATH', [PATH ':/path/to/install/location'])
+addpath('/path/to/install/location')
 ```
 
 ### Running
@@ -51,6 +57,12 @@ setenv('PATH', [PATH ':/path/to/installation/location'])
 3. run `dautoalign4warp(<pixel_size_angstrom>, <fiducial_diameter_nm>, <nominal_rotation_angle>, <output_folder>)`
 
 This will align your tilt-series and tidy everything up ready for import back into Warp so you can generate tomograms.
+If you then want to use Dynamo for particle picking...
 
+4. Import alignments into Warp as described in Warp's user guide
+5. Reconstruct downsampled tomograms (and deconvolved tomograms for visualisation) in Warp
+6. Run `warp2catalogue(<warp_reconstruction_folder>, <pixel_size_angstrom>)`
+
+This will generate a catalogue in which the visualisation volume is the deconvolved tomogram from Warp, particles will be cropped from the 3D-CTF corrected, unfilt
 
 Enjoy!
