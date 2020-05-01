@@ -7,10 +7,14 @@
 dautoalign4warp is a function for...
 - Automated fiducial detection and recentering based on 2D average of bead across tilt series using Dynamo
 <img src="dynamo_markers.png"
-     alt="Automatically detected fiducial markers"/>
+     alt="Automatically detected fiducial markers"
+     width=40%
+     height=40%/>
 - Creation of an IMOD model from these bead positions for use with the IMOD program tiltalign (fixed tilt angles, solve for one rotation angle)
 - Preparation of all results for easy import back into Warp
 
-Do you want to use the <a href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Model">geometrical particle picking tools</a> in dynamo to pick particles, imparting prior knowledge about your particle orientation to further subtomogram averaging? you may want to use the `warp2catalogue` script to quickly set up a <a href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Catalogue">catalogue</a> of your data, correctly linked for visualisation of Warp's deconvolved tomograms with cropping directly from the 3d-CTF corrected tomogram from warp
+Do you want to use the <a href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Model">geometrical tools</a> in Dynamo to pick particles, imparting prior knowledge about your particle orientation to further subtomogram averaging? 
+
+You may want to use the `warp2catalogue` script to quickly set up a <a href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Catalogue">catalogue</a> of your data, correctly linked for visualisation of Warp's deconvolved tomograms with cropping directly from the 3d-CTF corrected tomogram from warp
 
 
