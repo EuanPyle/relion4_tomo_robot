@@ -3,7 +3,7 @@
 2. Navigate to the 'imod' directory warp created and run 
 `dautoalign4warp`
 3. Import the results into warp and generate your tomograms!
-4. (optional) Create a Dynamo catalogue to pick particles
+4. (optional) Use `warp2catalogue` to easily create a Dynamo catalogue for particle picking
 
 # Motivation
 - Robust, automated tilt-series alignment of stacks created by Warp
