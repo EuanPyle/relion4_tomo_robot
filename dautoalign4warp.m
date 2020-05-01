@@ -1,11 +1,13 @@
 %%% Function to be run in 'imod' directory output by warp
 
 function dautoalign4warp(apix, fiducial_diameter_nm, nominal_rotation_angle, workflows_folder)
+    %%% Gather directories in imod dir
     base_folder = pwd;
     files = dir(base_folder);
     dir_flags = [files.isdir];
     directories = files(dir_flags);
     
+    %%% Find stack files and automatically align, run tiltalign, sort everything for warp
     for i = 1:length(directories)
         basename = directories(i).name;
         stack = fullfile(basename, [basename, '.st']);
@@ -20,12 +22,13 @@ function dautoalign4warp(apix, fiducial_diameter_nm, nominal_rotation_angle, wor
             end
         end
     end
-
+    % Cleanup
     delete tmp.tlt;
     delete tmp.csv;
-
+    
+    % Print info about quality of alignment to console
     info_file_paths = fullfile(workflows_folder, '*', 'info', 'fitting.doc');
-    command = ['cat ', info_file_paths, ' | grep rms && grep total\ markers'];
+    command = ['cat ', info_file_paths, ' | grep rms'];
     system(command)
 end
 
