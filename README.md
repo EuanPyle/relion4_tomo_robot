@@ -58,6 +58,7 @@ addpath('/path/to/install/location')
 3. run `dautoalign4warp(<pixel_size_angstrom>, <fiducial_diameter_nm>, <nominal_rotation_angle>, <output_folder>)`
 
 This will align your tilt-series and tidy everything up ready for import back into Warp so you can generate tomograms.
+
 If you then want to use Dynamo for particle picking...
 
 4. Import alignments into Warp as described in Warp's user guide
