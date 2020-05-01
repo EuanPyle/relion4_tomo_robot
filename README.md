@@ -33,7 +33,7 @@ Do you want to use the <a href="https://wiki.dynamo.biozentrum.unibas.ch/w/index
           />
 </p>
 
-If so, you may want to use the `warp2catalogue` script to quickly set up a <a href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Catalogue">catalogue</a> of your data, correctly linked for visualisation of Warp's deconvolved tomograms with cropping directly from the 3d-CTF corrected tomogram from warp
+If so, you may want to use the `warp2catalogue` function to quickly set up a <a href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Catalogue">catalogue</a> of your data, correctly linked for visualisation of Warp's deconvolved tomograms with cropping directly from the 3d-CTF corrected tomogram from warp
 
 
 ## Installation
