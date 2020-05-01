@@ -4,7 +4,7 @@
 `dautoalign4warp(apix, fiducial_diameter_nm, nominal_rotation_angle, output_folder)`
 3. Import the results into warp and generate your tomograms!
 
-dautoalign4warp is a function for...
+`dautoalign4warp` is a function for...
 - Automated fiducial detection and recentering based on 2D average of bead across tilt series using Dynamo
  <p align="center">    
      <img src="dynamo_markers.png"
