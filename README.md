@@ -9,8 +9,9 @@
 - Robust, automated tilt-series alignment of stacks created by Warp
 - Ability to easily use Warp reconstructions with the geometrical particle picking tools in Dynamo
 
-`dautoalign4warp` is a function for...
+#### Outline
 - Automated robust fiducial detection using Dynamo
+
  <p align="center">    
      <img src="dynamo_markers.png"
           alt="Automatically detected fiducial markers"
@@ -18,6 +19,7 @@
           height=40%
           />
 </p>
+
 - Creation of an IMOD model from these positions
 - Tilt-series alignment using the IMOD program tiltalign (fixed tilt angles, solve for one rotation angle)
 - Preparation of all results for easy import back into Warp
