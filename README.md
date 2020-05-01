@@ -9,7 +9,9 @@ dautoalign4warp is a function for...
 <img src="dynamo_markers.png"
      alt="Automatically detected fiducial markers"
      width=40%
-     height=40%/>
+     height=40%
+     class=center
+     />
 - Creation of an IMOD model from these bead positions for use with the IMOD program tiltalign (fixed tilt angles, solve for one rotation angle)
 - Preparation of all results for easy import back into Warp
 
