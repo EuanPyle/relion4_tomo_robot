@@ -64,6 +64,6 @@ If you then want to use Dynamo for particle picking...
 5. Reconstruct downsampled tomograms (and deconvolved tomograms for visualisation) in Warp
 6. Run `warp2catalogue(<warp_reconstruction_folder>, <pixel_size_angstrom>)`
 
-This will generate a catalogue in which the visualisation volume is the deconvolved tomogram from Warp, particles will be cropped from the 3D-CTF corrected, unfilt
+This will generate a catalogue in which the visualisation volume is the deconvolved tomogram from Warp, particles will be cropped from the 3D-CTF corrected, unfiltered reconstructions
 
 Enjoy!
