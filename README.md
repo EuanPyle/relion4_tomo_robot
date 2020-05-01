@@ -5,7 +5,7 @@
 3. Import the results into warp and generate your tomograms!
 
 `dautoalign4warp` is a function for...
-- Automated fiducial detection and recentering based on 2D average of bead across tilt series using Dynamo
+- Automated robust fiducial detection using Dynamo
  <p align="center">    
      <img src="dynamo_markers.png"
           alt="Automatically detected fiducial markers"
@@ -13,8 +13,8 @@
           height=40%
           />
 </p>
-- Creation of an IMOD model from these bead positions
-- Tilt series alignment using the IMOD program tiltalign (fixed tilt angles, solve for one rotation angle)
+- Creation of an IMOD model from these positions
+- Tilt-series alignment using the IMOD program tiltalign (fixed tilt angles, solve for one rotation angle)
 - Preparation of all results for easy import back into Warp
 
 
@@ -50,6 +50,7 @@ setenv('PATH', [PATH ':/path/to/installation/location'])
 2. Navigate to the `imod` directory created by Warp when you exported tilt-series as stacks for IMOD
 3. run `dautoalign4warp(<pixel_size_angstrom>, <fiducial_diameter_nm>, <nominal_rotation_angle>, <output_folder>)`
 
-This will align your tilt-series and tidy everything up ready for import back into Warp.
+This will align your tilt-series and tidy everything up ready for import back into Warp so you can generate tomograms.
+
 
 Enjoy!
