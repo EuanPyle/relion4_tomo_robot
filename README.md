@@ -1,6 +1,7 @@
 # Workflow to prep data for M
 1. Follow the  <a href="http://www.warpem.com/warp/?page_id=378">Warp user guide</a> to take you from frames to tilt-series
-2. Navigate to the 'imod' directory warp created and run `dautoalign4warp(apix, fiducial_diameter_nm, nominal_rotation_angle, output_folder)`
+2. Navigate to the 'imod' directory warp created and run 
+`dautoalign4warp(apix, fiducial_diameter_nm, nominal_rotation_angle, output_folder)`
 3. Import the results into warp and generate your tomograms!
 
 dautoalign4warp is a function for...
