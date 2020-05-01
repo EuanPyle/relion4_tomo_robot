@@ -3,7 +3,7 @@
 %%% the warp 3d-ctf corrected tomogram
 
 function warp2catalogue(warp_reconstruction_dir, reconstruction_apix)
-	mrc_files = dir(fullfile(warp_reconstruction_dir, '*.mrc');
+	mrc_files = dir(fullfile(warp_reconstruction_dir, '*.mrc'));
 	vll_name = 'warp2catalogue.vll';
 
 	f = fopen(vll_name,'wt');
