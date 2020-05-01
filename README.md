@@ -22,7 +22,7 @@ Do you want to use the <a href="https://wiki.dynamo.biozentrum.unibas.ch/w/index
 
  <p align="center">    
      <img src="filaments.png"
-          alt="Automatically detected fiducial markers"
+          alt="Filament models with different geometries"
           />
 </p>
 
