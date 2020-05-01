@@ -6,12 +6,13 @@
 
 dautoalign4warp is a function for...
 - Automated fiducial detection and recentering based on 2D average of bead across tilt series using Dynamo
-<img src="dynamo_markers.png"
-     alt="Automatically detected fiducial markers"
-     width=40%
-     height=40%
-     class=center
-     />
+ <p align="center">    
+     <img src="dynamo_markers.png"
+          alt="Automatically detected fiducial markers"
+          width=40%
+          height=40%
+          />
+</p>
 - Creation of an IMOD model from these bead positions
 - Tilt series alignment using the IMOD program tiltalign (fixed tilt angles, solve for one rotation angle)
 - Preparation of all results for easy import back into Warp
