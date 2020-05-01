@@ -7,7 +7,7 @@
 
 # Motivation
 - Robust, automated tilt-series alignment of stacks created by Warp
-- Ability to easily use Warp reconstructions with the geometrical particle picking in Dynamo
+- Ability to easily use Warp reconstructions with the geometrical particle picking tools in Dynamo
 
 `dautoalign4warp` is a function for...
 - Automated robust fiducial detection using Dynamo
@@ -36,7 +36,8 @@ If so, you may want to use the `warp2catalogue` script to quickly set up a <a hr
 
 ## Installation
 #### Requirements
-Dynamo 1.1.478 or later, activated in MATLAB
+Dynamo (1.1.478 or later) activated in MATLAB
+
 IMOD (tested on 4.10.35)
 
 #### Clone repository
@@ -51,7 +52,7 @@ setenv('PATH', [PATH ':/path/to/install/location'])
 addpath('/path/to/install/location')
 ```
 
-### Running
+#### Running
 1. Make sure Dynamo is activated in MATLAB (`dynamo_activate`)
 2. Navigate to the `imod` directory created by Warp when you exported tilt-series as stacks for IMOD
 3. run `dautoalign4warp(<pixel_size_angstrom>, <fiducial_diameter_nm>, <nominal_rotation_angle>, <output_folder>)`
