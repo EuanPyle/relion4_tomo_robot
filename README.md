@@ -54,6 +54,12 @@ setenv('PATH', [PATH ':/path/to/install/location'])
 addpath('/path/to/install/location')
 ```
 
+#### Make non-matlab scripts executable
+```
+chmod +x /path/to/install/location/tiltalign_wrapper.sh
+chmod +x /path/to/install/location/get_tasolution.py
+```
+
 #### Running
 1. Make sure Dynamo is activated in MATLAB (`dynamo_activate`)
 2. Navigate to the `imod` directory created by Warp when you exported tilt-series as stacks for IMOD
