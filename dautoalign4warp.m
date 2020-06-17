@@ -42,7 +42,7 @@ function final_dir_name = align(stack, workflow_name, tilt_angles, apix, fiducia
     copyfile(tilt_angles, 'tmp.tlt');
     u.enter.tiltAngles('tmp.tlt');
     
-    u.enter.settingAcquisition.apix(2.7);
+    u.enter.settingAcquisition.apix(apix);
     u.enter.settingComputing.parallelCPUUse(1);
     u.enter.settingComputing.cpus('*')
     
