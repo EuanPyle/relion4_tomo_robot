@@ -9,6 +9,11 @@
 - Robust, automated tilt-series alignment of stacks created by Warp
 - Ability to easily use Warp reconstructions with the geometrical particle picking tools in Dynamo
 
+# Requirements
+MATLAB >= r2019a
+Python >= 3.6
+IMOD >= 4.10.37 on PATH
+
 #### Outline
 - Automated robust fiducial detection using Dynamo
 
