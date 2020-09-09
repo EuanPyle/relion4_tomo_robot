@@ -62,7 +62,7 @@ function final_dir_name = align(stack, workflow_name, tilt_angles, apix, fiducia
     u.run.area.uptoRefinement('-skipProcessed');
     
     %%% Create IMOD format model
-    [p, basename, ext] = fileparts(workflows_folder);
+    [p, basename, ext] = fileparts(workflow_name);
     workflow_folder = fullfile(workflows_folder, strcat(basename, '.AWF'));
     markers_file = fullfile(workflow_folder, 'workingMarkers.dms');
     model_file = fullfile(workflow_folder, 'workingMarkers.mod');
