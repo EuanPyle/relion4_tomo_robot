@@ -68,7 +68,7 @@ rm -r autoalign_dynamo
 
 #### Activation and Running
 1. Make sure Dynamo is activated in MATLAB (`dynamo_activate`)
-2. Make sure autoalign_dynamo is activated (`run /path/to/install/autoalign_activate.m`)
+2. Activate autoalign_dynamo (`run /path/to/install/autoalign_activate.m`)
 3. Navigate to the `imod` directory created by Warp when you exported tilt-series as stacks for IMOD
 4. run `dautoalign4warp(<pixel_size_angstrom>, <fiducial_diameter_nm>, <nominal_rotation_angle>, <output_folder>)`
 
