@@ -62,7 +62,8 @@ You will be asked where you would like to install the package, the default locat
 
 Optionally, you can remove the installation files
 ```
-
+cd ..
+rm -r autoalign_dynamo
 ```
 
 #### Activation and Running
