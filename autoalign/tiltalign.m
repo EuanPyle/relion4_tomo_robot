@@ -1,11 +1,11 @@
-function tiltalign_warp(warp_folder, rotation_angle, pixel_size_angstrom)
+function tiltalign(warp_folder, rotation_angle, pixel_size_angstrom)
     %%%%% Runs tiltalign on the .mod and .tlt files files in a warp tilt series directory
     %%% requires tiltalign_wrapper.sh to be on the path
     %%% tiltalign wrapper uses get_tasolution.py
     
     % Go to tilt series directory
     working_directory = pwd;
-    cd(warp_folder)
+    cd(warp_folder);
     
     % Extract basename of files
     [p, n, ext] = fileparts(warp_folder);
@@ -24,6 +24,6 @@ function tiltalign_warp(warp_folder, rotation_angle, pixel_size_angstrom)
     system(command);
     
     % Return to working directory
-    cd(working_directory)
+    cd(working_directory);
     
 end

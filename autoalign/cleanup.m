@@ -35,5 +35,5 @@ function warp_dir_name = cleanup(workflow_folder)
     movefile(nominal_tilt_angles, fullfile(workflow_folder, new_rawtlt_file));
     
     % rename workflow folder to final resting place
-    movefile(workflow_folder, warp_dir_name)
+    movefile(workflow_folder, warp_dir_name);
 end

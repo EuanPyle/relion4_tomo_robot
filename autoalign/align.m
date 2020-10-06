@@ -53,5 +53,5 @@ function final_dir_name = align(stack, workflow_name, tilt_angles, apix, fiducia
     dms2mod(markers_file, model_file, stack);
     
     %%% Cleanup
-    final_dir_name = cleanup(workflow_folder)
+    final_dir_name = cleanup(workflow_folder);
 end
