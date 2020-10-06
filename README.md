@@ -38,13 +38,10 @@ If so, you may want to use the `warp2catalogue` function to quickly set up a <a 
 
 ## Installation
 #### Requirements
-Dynamo (1.1.478 or later) activated in MATLAB
-
-IMOD (tested on 4.10.35)
-
-MATLAB (R2019a or later)
-
-Python (3.0 or later)
+- Dynamo (1.1.478 or later) activated in MATLAB
+- IMOD (tested on 4.10.35)
+- MATLAB (R2019a or later)
+- Python (3.0 or later)
 
 #### Download and install
 ```
