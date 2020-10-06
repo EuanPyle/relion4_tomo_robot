@@ -44,24 +44,24 @@ If so, you may want to use the `warp2catalogue` function to quickly set up a <a 
 - Python (3.0 or later)
 
 #### Download and install
-```
+```bash
 git clone https://github.com/alisterburt/autoalign_dynamo.git
 cd autoalign_dynamo
 ./install.sh
 ```
 
 This requires git, which can be installed by your package manager if not already present in your system, for example...
-```
+```bash
 sudo apt-get install git
 ```
 
 You will be asked where you would like to install the package, the default location is...
-```
+```bash
 /opt/autoalign_dynamo
 ```
 
 Optionally, you can remove the installation files
-```
+```bash
 cd ..
 rm -r autoalign_dynamo
 ```
