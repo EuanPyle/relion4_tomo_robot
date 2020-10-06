@@ -1,4 +1,6 @@
-## Workflow from raw data to aligned tilt-series
+## Automatic fiducial-based tilt-series alignment for Warp tilt-series directories
+
+#### Workflow from raw data to aligned tilt-series
 1. Follow the  <a href="http://www.warpem.com/warp/?page_id=378">Warp user guide</a> to take you from frames to tilt-series
 2. In MATLAB, navigate to the 'imod' directory warp created and run 
 `dautoalign4warp`
