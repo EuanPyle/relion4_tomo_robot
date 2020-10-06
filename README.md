@@ -5,7 +5,7 @@
 3. Import the results into warp and reconstruct your tomograms!
 4. (optional) Use `warp2catalogue` to easily create a Dynamo catalogue for particle picking
 
-## Motivation
+#### Motivation
 - Robust, automated tilt-series alignment of stacks created by Warp
 - Ability to easily use Warp reconstructions with the geometrical particle picking tools in Dynamo
 
@@ -24,7 +24,7 @@
 - Tilt-series alignment using the IMOD program tiltalign (fixed tilt angles, solve for one rotation angle)
 - Preparation of all results for easy import back into Warp
 
-## Particle picking in Dynamo?
+#### Particle picking in Dynamo?
 Do you want to use the <a href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Model">geometrical tools</a> in Dynamo to pick particles, imparting prior knowledge about your particle orientation to further subtomogram averaging?
 
  <p align="center">    
@@ -36,7 +36,7 @@ Do you want to use the <a href="https://wiki.dynamo.biozentrum.unibas.ch/w/index
 If so, you may want to use the `warp2catalogue` function to quickly set up a <a href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Catalogue">catalogue</a> of your data, correctly linked for visualisation of Warp's deconvolved tomograms with cropping directly from the 3d-CTF corrected tomogram from warp
 
 
-## Installation
+#### Installation
 #### Requirements
 - Dynamo (1.1.478 or later) activated in MATLAB
 - IMOD (tested on 4.10.35)
