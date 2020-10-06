@@ -23,7 +23,7 @@ function dautoalign4warp(apix, fiducial_diameter_nm, nominal_rotation_angle, out
         if contains(basename, '.mrc')
             try
                 final_dir_name = align(stack, basename, rawtlt, apix, fiducial_diameter_nm, output_folder)
-                tiltalign_warp(final_dir_name, nominal_rotation_angle, apix)
+                tiltalign(final_dir_name, nominal_rotation_angle, apix)
             catch
                 fprintf('failed on: %s\n', basename)
             end
@@ -34,7 +34,7 @@ function dautoalign4warp(apix, fiducial_diameter_nm, nominal_rotation_angle, out
     delete tmp.csv;
     
     % Print info about quality of alignment to console
-    info_file_paths = fullfile(workflows_folder, '*', 'info', 'fitting.doc');
+    info_file_paths = fullfile(output_folder, '*', 'info', 'fitting.doc');
     command = ['cat ', info_file_paths, ' | grep rms'];
     system(command)
 end
