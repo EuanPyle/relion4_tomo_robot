@@ -1,18 +1,13 @@
-# Workflow from raw data to aligned tilt-series
+## Workflow from raw data to aligned tilt-series
 1. Follow the  <a href="http://www.warpem.com/warp/?page_id=378">Warp user guide</a> to take you from frames to tilt-series
 2. In MATLAB, navigate to the 'imod' directory warp created and run 
 `dautoalign4warp`
 3. Import the results into warp and reconstruct your tomograms!
 4. (optional) Use `warp2catalogue` to easily create a Dynamo catalogue for particle picking
 
-# Motivation
+## Motivation
 - Robust, automated tilt-series alignment of stacks created by Warp
 - Ability to easily use Warp reconstructions with the geometrical particle picking tools in Dynamo
-
-# Requirements
-MATLAB >= r2019a
-Python >= 3.6
-IMOD >= 4.10.37 on PATH
 
 #### Outline
 - Automated robust fiducial detection using Dynamo
@@ -47,6 +42,10 @@ Dynamo (1.1.478 or later) activated in MATLAB
 
 IMOD (tested on 4.10.35)
 
+MATLAB (R2019a or later)
+
+Python (3.0 or later)
+
 #### Download and install
 ```
 git clone https://github.com/alisterburt/autoalign_dynamo.git
@@ -62,6 +61,11 @@ sudo apt-get install git
 You will be asked where you would like to install the package, the default location is...
 ```
 /opt/autoalign_dynamo
+```
+
+Optionally, you can remove the installation files
+```
+
 ```
 
 #### Activation and Running
