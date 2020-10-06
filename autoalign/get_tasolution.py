@@ -5,7 +5,6 @@ if len(sys.argv) == 1:
 	print('provide filename as argument')
 else:
 	filename = sys.argv[1]
-	print(f'operating on {filename}')
 	
 
 def check_line(line, printing):
