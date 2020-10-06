@@ -1,8 +1,8 @@
-# Workflow to prep data for M
+# Workflow from raw data to aligned tilt-series
 1. Follow the  <a href="http://www.warpem.com/warp/?page_id=378">Warp user guide</a> to take you from frames to tilt-series
-2. Navigate to the 'imod' directory warp created and run 
+2. In MATLAB, navigate to the 'imod' directory warp created and run 
 `dautoalign4warp`
-3. Import the results into warp and generate your tomograms!
+3. Import the results into warp and reconstruct your tomograms!
 4. (optional) Use `warp2catalogue` to easily create a Dynamo catalogue for particle picking
 
 # Motivation
@@ -18,7 +18,7 @@ IMOD >= 4.10.37 on PATH
 - Automated robust fiducial detection using Dynamo
 
  <p align="center">    
-     <img src="dynamo_markers.png"
+     <img src="assets/dynamo_markers.png"
           alt="Automatically detected fiducial markers"
           width=40%
           height=40%
@@ -33,7 +33,7 @@ IMOD >= 4.10.37 on PATH
 Do you want to use the <a href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Model">geometrical tools</a> in Dynamo to pick particles, imparting prior knowledge about your particle orientation to further subtomogram averaging?
 
  <p align="center">    
-     <img src="filaments.png"
+     <img src="assets/filaments.png"
           alt="Filament models with different geometries"
           />
 </p>
@@ -47,28 +47,28 @@ Dynamo (1.1.478 or later) activated in MATLAB
 
 IMOD (tested on 4.10.35)
 
-#### Clone repository
-Download this repository or run
-`git clone https://github.com/alisterburt/autoalign_dynamo.git` from the command line in the install location
-
-#### Add necessary files to PATH
-Add the install location to your PATH variable in MATLAB and your MATLAB path
+#### Download and install
 ```
-PATH = getenv('PATH');
-setenv('PATH', [PATH ':/path/to/install/location'])
-addpath('/path/to/install/location')
+git clone https://github.com/alisterburt/autoalign_dynamo.git
+cd autoalign_dynamo
+./install.sh
 ```
 
-#### Make non-matlab scripts executable
+This requires git, which can be installed by your package manager if not already present in your system, for example...
 ```
-chmod +x /path/to/install/location/tiltalign_wrapper.sh
-chmod +x /path/to/install/location/get_tasolution.py
+sudo apt-get install git
 ```
 
-#### Running
+You will be asked where you would like to install the package, the default location is...
+```
+/opt/autoalign_dynamo
+```
+
+#### Activation and Running
 1. Make sure Dynamo is activated in MATLAB (`dynamo_activate`)
-2. Navigate to the `imod` directory created by Warp when you exported tilt-series as stacks for IMOD
-3. run `dautoalign4warp(<pixel_size_angstrom>, <fiducial_diameter_nm>, <nominal_rotation_angle>, <output_folder>)`
+2. Make sure autoalign_dynamo is activated (`run /path/to/install/autoalign_activate.m`)
+3. Navigate to the `imod` directory created by Warp when you exported tilt-series as stacks for IMOD
+4. run `dautoalign4warp(<pixel_size_angstrom>, <fiducial_diameter_nm>, <nominal_rotation_angle>, <output_folder>)`
 
 This will align your tilt-series and tidy everything up ready for import back into Warp so you can generate tomograms.
 
@@ -79,5 +79,13 @@ If you then want to use Dynamo for particle picking...
 6. Run `warp2catalogue(<warp_reconstruction_folder>, <pixel_size_angstrom>)`
 
 This will generate a catalogue in which the visualisation volume is the deconvolved tomogram from Warp, particles will be cropped from the 3D-CTF corrected, unfiltered reconstructions
+
+To look at this catalogue, in MATLAB type...
+```
+dcm warp_catalogue
+```
+
+#### Additional info
+If you want to use the automated alignment script outside of the Warp directory structure, a function called align is provided which allows automated alignment of a single tilt-series.
 
 Enjoy!

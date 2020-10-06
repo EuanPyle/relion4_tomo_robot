@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 import sys
 
 if len(sys.argv) == 1:
@@ -19,8 +19,6 @@ def check_line(line, printing):
 	
 	return printing
 	
-	
-
 
 with open(filename) as f:
 	lines_to_keep = []
