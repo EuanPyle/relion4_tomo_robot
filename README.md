@@ -24,7 +24,7 @@
 - Tilt-series alignment using the IMOD program tiltalign (fixed tilt angles, solve for one rotation angle)
 - Preparation of all results for easy import back into Warp
 
-
+## Particle picking in Dynamo?
 Do you want to use the <a href="https://wiki.dynamo.biozentrum.unibas.ch/w/index.php/Model">geometrical tools</a> in Dynamo to pick particles, imparting prior knowledge about your particle orientation to further subtomogram averaging?
 
  <p align="center">    
