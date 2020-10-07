@@ -12,7 +12,7 @@
 - Ability to easily use Warp reconstructions with the geometrical particle picking tools in Dynamo
 
 #### Outline
-- Automated robust fiducial detection using Dynamo
+- Automated robust fiducial detection and fiducial position refinement using Dynamo
 
  <p align="center">    
      <img src="assets/dynamo_markers.png"
