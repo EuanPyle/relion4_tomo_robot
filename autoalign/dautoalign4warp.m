@@ -35,8 +35,9 @@ function dautoalign4warp(apix, fiducial_diameter_nm, nominal_rotation_angle, out
     
     % Print info about quality of alignment to console
     info_file_paths = fullfile(output_folder, '*', 'info', 'fitting.doc');
-    command = ['cat ', info_file_paths, ' | grep rms'];
+    command = ['cat ', info_file_paths, ' | grep rms > ',fullfile(output_folder, 'rms.txt')];
     system(command)
+    system('cat ', fullfile(output_folder, 'rms.txt'))
 end
 
 
