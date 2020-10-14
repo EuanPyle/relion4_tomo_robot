@@ -39,7 +39,7 @@ done
 
 # Copy prepared autoalign directory to true install location
 mkdir -p $install_dir
-\cp -rf $AUTOALIGN_DIR/* $install_dir/
+\cp -rf $AUTOALIGN_DIR/* $install_dir/ && echo -e "Successfully installed autoalign_dynamo in \e[36m${install_dir}\e[0m"
 \rm $ACTIVATION_SCRIPT
 
-echo -e "installed autoalign_dynamo in \e[36m${install_dir}\e[0m"
+
