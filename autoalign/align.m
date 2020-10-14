@@ -46,8 +46,8 @@ function final_dir_name = align(stack, workflow_name, tilt_angles, apix, fiducia
     workflow.area.indexing.step.tiltGapFiller.parameterSet.residualsThreshold(5);
     workflow.area.refinement.step.trimMarkers.parameterSet.maximalResidualObservation(5);
     
-    %%% Run workflow up to refinement (skip already processes tilt-series)
-    workflow.run.area.uptoRefinement('-skipProcessed');
+    %%% Run workflow up to refinement
+    workflow.run.area.uptoRefinement();
     
     %%% Create IMOD format model
     dms2mod(markers_file, model_file, stack);
