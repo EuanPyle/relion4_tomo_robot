@@ -4,4 +4,5 @@ PATH = getenv('PATH');
 addpath(install_loc);
 setenv('PATH', [install_loc, ':' PATH]);
 clear install_loc
-clear path
+clear PATH
+disp("Successfully activated 'autoalign_dynamo'!")
