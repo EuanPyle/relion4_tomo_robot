@@ -1,0 +1,8 @@
+function [outputArg1,outputArg2] = autoalign_warn(msg)
+    orig_state = warning;
+    warning('on');
+    
+    warning(msg)
+    
+end
+

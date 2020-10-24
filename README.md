@@ -1,9 +1,8 @@
-## Automatic fiducial-based tilt-series alignment for Warp tilt-series directories
+## Automated on-the-fly fiducial-based tilt-series alignment for Warp tilt-series directories
 
 #### Workflow from raw data to aligned tilt-series
 1. Follow the  <a href="http://www.warpem.com/warp/?page_id=378">Warp user guide</a> to take you from frames to tilt-series
-2. In MATLAB, navigate to the 'imod' directory warp created and run 
-`dautoalign4warp`
+2. Run `dautoalign4warp` and have it watch your tilt-series directory to process any incoming tilt-series
 3. Import the results into warp and reconstruct your tomograms!
 4. (optional) Use `warp2catalogue` to easily create a Dynamo catalogue for particle picking
 
@@ -62,7 +61,7 @@ You will be asked where you would like to install the package, the default locat
 /opt/autoalign_dynamo
 ```
 
-Optionally, you can remove the installation files
+After installation you can remove the installation files
 ```bash
 cd ..
 rm -r autoalign_dynamo
@@ -72,9 +71,9 @@ rm -r autoalign_dynamo
 1. Make sure Dynamo is activated in MATLAB (`dynamo_activate`)
 2. Activate autoalign_dynamo (`run /path/to/install/autoalign_activate.m`)
 3. Navigate to the `imod` directory created by Warp when you exported tilt-series as stacks for IMOD
-4. run `dautoalign4warp(<pixel_size_angstrom>, <fiducial_diameter_nm>, <nominal_rotation_angle>, <output_folder>)`
+4. run `dautoalign4warp(<warp_tilt_series_directory>, <pixel_size_angstrom>, <fiducial_diameter_nm>, <nominal_rotation_angle>, <output_folder>)`
 
-This will align your tilt-series and tidy everything up ready for import back into Warp so you can generate tomograms.
+This will watch the warp tilt-series directory, align your tilt-series on-the-fly and tidy everything up ready for import back into Warp so you can generate your tomograms.
 
 If you then want to use Dynamo for particle picking...
 

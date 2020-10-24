@@ -21,7 +21,9 @@ function tiltalign(warp_folder, rotation_angle, pixel_size_angstrom)
     
     % Call tiltalign_wrapper.sh to generate necessary transforms for Warp tomogram reconstruction
     command = ['tiltalign_wrapper.sh ', model_file, ' ', tilt_angle_file, ' ', num2str(rotation_angle), ' ', num2str(pixel_size_nm), ' ', output_tilt_angle_file, ' ', output_xf_file];
-    system(command);
+    [status,cmdout] = system(command);
+    check_status_cmdout(status, cmdout)
+    
     
     % Return to working directory
     cd(working_directory);

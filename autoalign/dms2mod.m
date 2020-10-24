@@ -31,11 +31,12 @@ function dms2mod(markers_dms_file, model_file, image_file)
     end
     
     %%% Write text file containing points in IMOD format
-    writematrix(output, 'tmp.csv', 'Delimiter', 'tab');
+    writematrix(real(output), 'tmp.csv', 'Delimiter', 'tab');
     
     %%% Run point2model to obtain IMOD format model file
     command = ['point2model -ci 5 -w 1 -co 120,120,255 -image ', image_file, ' tmp.csv ', model_file];
-    system(command);
+    [status, cmdout] = system(command);
+    check_status_cmdout(status, cmdout);
     
     %%% Write out tilt angles
     tilt_angle_file = strrep(model_file, '.mod', '.tlt');

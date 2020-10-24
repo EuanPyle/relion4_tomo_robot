@@ -1,4 +1,4 @@
-function final_dir_name = align(stack, workflow_name, tilt_angles, apix, fiducial_diameter_nm, workflows_folder)
+function final_dir_name = autoalign(stack, workflow_name, tilt_angles, apix, fiducial_diameter_nm, workflows_folder)
     %%% Parameter descriptions
     % stack - filepath of tilt series stack in mrc format
     % workflow_name - name of workflow to be saved
@@ -21,7 +21,8 @@ function final_dir_name = align(stack, workflow_name, tilt_angles, apix, fiducia
     fiducial_radius_px = fiducial_diameter_px / 2;
     fiducial_radius_px = round(fiducial_radius_px);
 
-    % Copy tilt angles to temporary file (does not accept .rawtlt files so do this to force .tlt extension)
+    % Copy tilt angles to temporary file 
+    % (does not accept .rawtlt files so do this to force .tlt extension)
     copyfile(tilt_angles, 'tmp.tlt');
 
     % Assign workflow parameters
@@ -32,7 +33,7 @@ function final_dir_name = align(stack, workflow_name, tilt_angles, apix, fiducia
     % computing params
     workflow.enter.settingComputing.parallelCPUUse(1);
     workflow.enter.settingComputing.cpus('*')
-    workflow.enter.settingDetection.detectionBinningFactor(2);
+    workflow.enter.settingDetection.detectionBinningFactor(1);
 
     % acquisition settings
     workflow.enter.settingAcquisition.apix(apix);
@@ -53,5 +54,5 @@ function final_dir_name = align(stack, workflow_name, tilt_angles, apix, fiducia
     dms2mod(markers_file, model_file, stack);
     
     %%% Cleanup
-    final_dir_name = cleanup(workflow_folder);
+    final_dir_name = autoalign_workflow_cleanup(workflow_folder);
 end

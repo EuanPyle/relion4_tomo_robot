@@ -1,43 +1,40 @@
-function dautoalign4warp(apix, fiducial_diameter_nm, nominal_rotation_angle, output_folder)
-    %%%%% Automatic alignment of a set of tilt series from Warp
-    % Function to be run in 'imod' directory output by warp
-    
+function dautoalign4warp(warp_imod_dir, apix, fiducial_diameter_nm, nominal_rotation_angle, output_folder)
+    %%%%% Automatic on-the-fly alignment of a set of tilt series from Warp
     %%% Parameters
     % apix - pixel size in angstroms of tilt series
     % fiducial_diameter_nm - fiducial diameter in nanometers
     % nominal rotation angle - estimated tilt axis angle (CCW rotation from Y-axis)
     % output folder - a folder in which to store the 
     
-    %%% Gather directories in imod dir
-    base_folder = pwd;
-    files = dir(base_folder);
-    dir_flags = [files.isdir];
-    directories = files(dir_flags);
+    %%% List of already processed tilt-series
+    processed = {};
     
-    %%% Find stack files and automatically align, run tiltalign, sort everything for warp
-    for i = 1:length(directories)
-        basename = directories(i).name;
-        stack = fullfile(basename, [basename, '.st']);
-        rawtlt = fullfile(basename, [basename, '.rawtlt']);
-   
-        if contains(basename, '.mrc')
+    %%% Attempt to 
+    while true
+        [ts_directory, processed] = next_dir(warp_imod_dir, processed);
+        
+        %
+        if ischar(ts_directory)
+            autoalign_sleep(processed)
+            continue
+        end
+        
+        % get paths to stack and rawtlt file
+        [basename, stack, rawtlt] = ts_info_from_dir(ts_directory);
+        
+        % try to align tilt series
+        if isfile(stack)
             try
-                final_dir_name = align(stack, basename, rawtlt, apix, fiducial_diameter_nm, output_folder)
+                final_dir_name = autoalign(stack, basename, rawtlt, apix, fiducial_diameter_nm, output_folder);
                 tiltalign(final_dir_name, nominal_rotation_angle, apix)
-            catch
-                fprintf('failed on: %s\n', basename)
+            catch ME
+                handle_exception(ME)
             end
+            autoalign_aux_cleanup()
+            autoalign_summarise(output_folder)
         end
     end
-    % Cleanup
-    delete tmp.tlt;
-    delete tmp.csv;
     
-    % Print info about quality of alignment to console
-    info_file_paths = fullfile(output_folder, '*', 'info', 'fitting.doc');
-    command = ['cat ', info_file_paths, ' | grep rms > ',fullfile(output_folder, 'rms.txt')];
-    system(command)
-    system('cat ', fullfile(output_folder, 'rms.txt'))
 end
 
 
