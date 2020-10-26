@@ -22,7 +22,7 @@
 </p>
 
 - Creation of an IMOD model from these positions
-- Tilt-series alignment using the IMOD program tiltalign (fixed tilt angles, solve for one rotation angle)
+- Solve for tilt-series alignment transformations using the IMOD program tiltalign (fixed tilt angles, solve for one rotation angle, robust fitting)
 - Preparation of all results for easy import back into Warp
 
 #### Particle picking in Dynamo?
@@ -70,10 +70,9 @@ rm -r autoalign_dynamo
 #### Activation and Running
 1. Make sure Dynamo is activated in MATLAB (`dynamo_activate`)
 2. Activate autoalign_dynamo (`run /path/to/install/autoalign_activate.m`)
-3. Navigate to the `imod` directory created by Warp when you exported tilt-series as stacks for IMOD
-4. run `dautoalign4warp(<warp_tilt_series_directory>, <pixel_size_angstrom>, <fiducial_diameter_nm>, <nominal_rotation_angle>, <output_folder>)`
+3. run `dautoalign4warp(<warp_tilt_series_directory>, <pixel_size_angstrom>, <fiducial_diameter_nm>, <nominal_rotation_angle>, <output_folder>)`
 
-This will watch the warp tilt-series directory, align your tilt-series on-the-fly and tidy everything up ready for import back into Warp so you can generate your tomograms.
+This will watch the warp tilt-series directory, align your tilt-series on-the-fly and tidy everything up ready for import back into Warp so you can generate your tomograms. The warp tilt-series directory is the 'imod' directory found inside your main warp processing directory.
 
 If you then want to use Dynamo for particle picking...
 
