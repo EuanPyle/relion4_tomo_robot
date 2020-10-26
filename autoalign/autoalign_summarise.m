@@ -10,7 +10,7 @@ function autoalign_summarise(output_folder)
     max_rms = max(m);
     std_rms = std(m);
     
-    fprintf('RMSD stats for experimental bead positions vs. projection model\nmin: %.2f\nmax: %.2f\nmean: %.2f\nsdev: %.2f\n', min_rms, max_rms, mean_rms, std_rms);
+    fprintf('Updated RMSD stats for experimental bead positions vs. projection model\nmin: %.2f\nmax: %.2f\nmean: %.2f\nsdev: %.2f\n', min_rms, max_rms, mean_rms, std_rms);
 end
 
 

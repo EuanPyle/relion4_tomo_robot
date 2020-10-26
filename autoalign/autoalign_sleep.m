@@ -10,6 +10,6 @@ function autoalign_sleep(processed)
     
     % Sleep
     disp('Going to sleep for 10 minutes...')
-    pause(30)
+    pause(600)
 end
 
