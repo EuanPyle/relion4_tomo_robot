@@ -70,8 +70,7 @@ rm -r autoalign_dynamo
 #### Activation and Running
 1. Make sure Dynamo is activated in MATLAB (`dynamo_activate`)
 2. Activate autoalign_dynamo (`run /path/to/install/autoalign_activate.m`)
-3. Navigate to the `imod` directory created by Warp when you exported tilt-series as stacks for IMOD
-4. run `dautoalign4warp(<warp_tilt_series_directory>, <pixel_size_angstrom>, <fiducial_diameter_nm>, <nominal_rotation_angle>, <output_folder>)`
+3. run `dautoalign4warp(<warp_tilt_series_directory>, <pixel_size_angstrom>, <fiducial_diameter_nm>, <nominal_rotation_angle>, <output_folder>)`
 
 This will watch the warp tilt-series directory, align your tilt-series on-the-fly and tidy everything up ready for import back into Warp so you can generate your tomograms.
 
