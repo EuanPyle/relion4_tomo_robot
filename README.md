@@ -2,7 +2,7 @@
 
 #### Workflow from raw data to aligned tilt-series
 1. Follow the  <a href="http://www.warpem.com/warp/?page_id=378">Warp user guide</a> to take you from frames to tilt-series
-2. Run `dautoalign4warp` and have it watch your tilt-series directory to process any incoming tilt-series
+2. Run `dautoalign4warp`, it will watch your tilt-series directory (`imod`) and align any incoming tilt-series
 3. Import the results into warp and reconstruct your tomograms!
 4. (optional) Use `warp2catalogue` to easily create a Dynamo catalogue for particle picking
 
