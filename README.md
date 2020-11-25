@@ -1,5 +1,9 @@
 ## Automated on-the-fly fiducial-based tilt-series alignment for Warp tilt-series directories
-
+<p align="center">    
+     <img src="assets/autoalign_dynamo.png"
+          alt="dautoalign4warp workflow overview"
+          />
+</p>
 #### Workflow from raw data to aligned tilt-series
 1. Follow the  <a href="http://www.warpem.com/warp/?page_id=378">Warp user guide</a> to take you from frames to tilt-series
 2. Run `dautoalign4warp`, it will watch your tilt-series directory (`imod`) and align any incoming tilt-series
