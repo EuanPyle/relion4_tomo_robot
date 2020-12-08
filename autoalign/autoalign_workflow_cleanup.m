@@ -2,6 +2,7 @@ function warp_dir_name = autoalign_workflow_cleanup(workflow_folder, warp_dir_na
     %%%%% cleanup unnecessary files in workflow folder and rename to have proper name for Warp
 
     % File names
+    war_dir_name_full = fullfile(workflow_folder, warp_dir_name)
     align_folder = fullfile(workflow_folder, 'align');
     config_folder = fullfile(workflow_folder, 'configFiles');
     detection_folder = fullfile(workflow_folder, 'detection');
@@ -33,6 +34,6 @@ function warp_dir_name = autoalign_workflow_cleanup(workflow_folder, warp_dir_na
     movefile(markers_model_file_imod, fullfile(workflow_folder, new_markers_file));
     movefile(nominal_tilt_angles, fullfile(workflow_folder, new_rawtlt_file));
     
-    % rename workflow folder to final resting place
-    movefile(workflow_folder, warp_dir_name);
+    % move intermediate dynamo workflow folder to final folder with correct name
+    movefile(workflow_folder, warp_dir_name_full);
 end
