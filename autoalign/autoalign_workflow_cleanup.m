@@ -1,8 +1,7 @@
-function warp_dir_name = autoalign_workflow_cleanup(workflow_folder)
+function warp_dir_name = autoalign_workflow_cleanup(workflow_folder, warp_dir_name)
     %%%%% cleanup unnecessary files in workflow folder and rename to have proper name for Warp
 
     % File names
-    warp_dir_name = strrep(workflow_folder, '.AWF', '.mrc');
     align_folder = fullfile(workflow_folder, 'align');
     config_folder = fullfile(workflow_folder, 'configFiles');
     detection_folder = fullfile(workflow_folder, 'detection');

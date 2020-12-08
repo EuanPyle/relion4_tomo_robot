@@ -54,5 +54,5 @@ function final_dir_name = autoalign(stack, workflow_name, tilt_angles, apix, fid
     dms2mod(markers_file, model_file, stack);
     
     %%% Cleanup
-    final_dir_name = autoalign_workflow_cleanup(workflow_folder);
+    final_dir_name = autoalign_workflow_cleanup(workflow_folder, workflow_name);
 end
