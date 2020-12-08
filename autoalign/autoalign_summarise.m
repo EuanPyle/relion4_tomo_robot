@@ -1,7 +1,7 @@
 function autoalign_summarise(output_folder)
     info_file_paths = fullfile(output_folder, '*', 'info', 'fitting.doc');
     command = ['cat ', info_file_paths, " | grep rms | awk '{print $2}' > ",fullfile(output_folder, 'rms.txt')];
-    command = strjoin(command)
+    command = strjoin(command);
     system(command);
     
     m = csvread(fullfile(output_folder, 'rms.txt'));
