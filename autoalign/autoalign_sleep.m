@@ -9,7 +9,7 @@ function autoalign_sleep(processed)
     disp(msg)
     
     % Sleep
-    disp('Going to sleep for 10 minutes...')
-    pause(600)
+    disp('Going to sleep for 30s...')
+    pause(30)
 end
 
