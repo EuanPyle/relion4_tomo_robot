@@ -1,4 +1,4 @@
-function warp_dir_name = autoalign_workflow_cleanup(workflow_folder, warp_dir_name, workflows_folder)
+function warp_dir_name_full = autoalign_workflow_cleanup(workflow_folder, warp_dir_name, workflows_folder)
     %%%%% cleanup unnecessary files in workflow folder and rename to have proper name for Warp
 
     % File names
