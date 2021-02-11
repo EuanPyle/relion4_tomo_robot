@@ -48,8 +48,14 @@ If so, you may want to use the `warp2catalogue` function to quickly set up a <a 
 #### Requirements
 - Dynamo (1.1.478 or later) activated in MATLAB
 - IMOD (tested on 4.10.35)
-- MATLAB (R2019a or later)
+- MATLAB (R2019a or later) (tested with the following toolboxes)
+     - parallel computing toolbox
+     - image processing toolbox
+     - computer vision toolbox
+     - curve fitting toolbox
 - Python (3.0 or later)
+
+There have been reports of slowness when MATLAB is configured to run on external computational resources, for this reason we recommend to run locally.
 
 #### Download and install
 ```bash
