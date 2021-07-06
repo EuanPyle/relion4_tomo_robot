@@ -46,7 +46,7 @@ If so, you may want to use the `warp2catalogue` function to quickly set up a <a 
 
 #### Installation
 #### Requirements
-- Dynamo (1.1.478 or later) activated in MATLAB
+- Dynamo (1.1.478 or later, 1.1.522 has problems) activated in MATLAB
 - IMOD (tested on 4.10.35)
 - MATLAB (R2019a or later) (tested with the following toolboxes)
      - parallel computing toolbox
