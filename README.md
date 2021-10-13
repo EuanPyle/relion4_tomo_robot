@@ -14,13 +14,9 @@ Yes please.
 
 #### Installation
 #### Requirements
-- Dynamo (1.1.478 or later, 1.1.522 has problems) activated in MATLAB
-- IMOD (tested on 4.10.35)
-- MATLAB (R2019a or later) (tested with the following toolboxes)
-     - parallel computing toolbox
-     - image processing toolbox
-     - computer vision toolbox
-     - curve fitting toolbox
+- Dynamo (1.1.478 or later) activated in MATLAB
+- IMOD (VERSION)
+- MATLAB (R2019a or later)
 - Python (3.0 or later)
 
 #### Download and install
