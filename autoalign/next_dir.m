@@ -1,6 +1,6 @@
-function [directory, processed] = next_dir(warp_imod_dir, processed)
+function [directory, processed] = next_dir(ts_dir, processed)
     % get stack directories
-    stack_directories = get_directories(warp_imod_dir);
+    stack_directories = get_directories(ts_dir);
 
     for idx = 1:size(stack_directories, 1)
         directory = stack_directories(idx);

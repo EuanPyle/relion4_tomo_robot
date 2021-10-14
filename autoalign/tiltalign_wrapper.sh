@@ -32,7 +32,6 @@ tiltalign -ModelFile $MODEL_FILE \
 -OutputTransformFile	$OUTPUT_XF_FILE \
 -OutputFilledInModel model_nogaps.fid \
 -RotationAngle	$ROTATION_ANGLE \
--UnbinnedPixelSize	$UNBINNED_PIXEL_SIZE \
 -TiltFile	$TILT_ANGLE_FILE \
 -AngleOffset	0.0 \
 -RotOption	-1 \
@@ -55,7 +54,7 @@ tiltalign -ModelFile $MODEL_FILE \
 -MaximumCycles	1000 \
 -KFactorScaling	1.0 \
 -NoSeparateTiltGroups	1 \
--AxisZShift	0.0 \
+-AxisZShift	0 \
 -ShiftZFromOriginal      1 \
 -TargetPatchSizeXandY	700,700 \
 -MinSizeOrOverlapXandY	0.5,0.5 \

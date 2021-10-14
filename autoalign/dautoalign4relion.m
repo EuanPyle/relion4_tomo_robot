@@ -1,7 +1,7 @@
-function dautoalign4warp(warp_imod_dir, apix, fiducial_diameter_nm, nominal_rotation_angle, output_folder)
-    %%%%% Automatic on-the-fly alignment of a set of tilt series from Warp
+function dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_angle, output_folder)
+    %%%%% Automatic on-the-fly alignment of a set of tilt series
     %%% Parameters
-    % warp_imod_dir - directory 'imod' created by warp containing tilt series directories
+    % ts_dir - directory containing tilt series directories
     % apix - pixel size in angstroms of tilt series
     % fiducial_diameter_nm - fiducial diameter in nanometers
     % nominal rotation angle - estimated tilt axis angle (CCW rotation from Y-axis)
@@ -12,7 +12,7 @@ function dautoalign4warp(warp_imod_dir, apix, fiducial_diameter_nm, nominal_rota
     
     %%% Attempt to 
     while true
-        [ts_directory, processed] = next_dir(warp_imod_dir, processed);
+        [ts_directory, processed] = next_dir(ts_dir, processed);
         
         %
         if ischar(ts_directory)
