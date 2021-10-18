@@ -30,7 +30,7 @@ function dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_
         
         % try to align tilt series
         if isfile(stack)
-            try
+            %%%%%%%%%%%%%%%%%%%%%try
 	    	
                 if strcmp(version_auto,'default')
 			final_dir_name = autoalign(stack, basename, rawtlt, apix, fiducial_diameter_nm, min_markers, output_folder);
@@ -45,9 +45,9 @@ function dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_
                 end
 		disp('Run autoalign successfully!');
 		tiltalign(final_dir_name, nominal_rotation_angle, apix)
-            catch ME
-                handle_exception(ME)
-            end
+            %%%%%%%%%%%%%%%%%%%%%%%%catch ME
+                %%%%%%%%%%%%%%%%%%%%handle_exception(ME)
+            %%%%%%%%%%%%%%%%%%end
             autoalign_aux_cleanup()
             autoalign_summarise(output_folder)
         end
