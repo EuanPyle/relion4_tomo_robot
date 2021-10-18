@@ -13,14 +13,13 @@ function dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_
     
     %%% Lower residuals = 'Roadmap' scripts, which fail to produce an .xf file for RELION more often and sometimes only keep fiducial markers on one side of the tilt series, but achieve a lower average residual for the TSA. More reliable = the autoalign function from the original autoalign_dynamo repository
     
-    prompt = 'Which version of autoalign would you like to use? Minimised residuals (recommended) (type: residuals) or minimised errors (type: errors). See README for details.'; 
-    version = input(prompt,'s');
+    prompt = 'Which version of autoalign would you like to use? Type: default or fast_mode \n \nThe default version where the residual movement of the fiducials is minimised (recommended) (type: default) or fast mode where the residual movement of the fiducial markers will be higher but the alignment will finish much faster (type: fast_mode). See README for details. \n \n:'; 
+    version_auto = input(prompt,'s');
     
     %%% Attempt to 
     while true
         [ts_directory, processed] = next_dir(ts_dir, processed);
         
-        %
         if ischar(ts_directory)
             autoalign_sleep(processed)
             continue
@@ -32,14 +31,20 @@ function dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_
         % try to align tilt series
         if isfile(stack)
             try
-                if version == 'residuals'
+	    	
+                if strcmp(version_auto,'default')
 			final_dir_name = autoalign(stack, basename, rawtlt, apix, fiducial_diameter_nm, min_markers, output_folder);
-		elif version == 'errors'
+		elseif strcmp(version_auto,'fast_mode')
+			disp('Running fast_mode');
 			final_dir_name = autoalign_original(stack, basename, rawtlt, apix, fiducial_diameter_nm, output_folder);
 		else
-			disp('Not correctly specified which version of autoalign you want to use, skipping. Type either: residuals or errors when prompted');
-                tiltalign(final_dir_name, nominal_rotation_angle, apix)
-		end
+			disp('Not correctly specified which version of autoalign you want to use, skipping. Type either: default or fast_mode when prompted');
+			break
+			break
+			break
+                end
+		disp('Run autoalign successfully!');
+		tiltalign(final_dir_name, nominal_rotation_angle, apix)
             catch ME
                 handle_exception(ME)
             end
