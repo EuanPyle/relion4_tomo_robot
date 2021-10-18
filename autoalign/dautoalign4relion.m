@@ -11,6 +11,11 @@ function dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_
     %%% List of already processed tilt-series
     processed = {};
     
+    %%% Lower residuals = 'Roadmap' scripts, which fail to produce an .xf file for RELION more often and sometimes only keep fiducial markers on one side of the tilt series, but achieve a lower average residual for the TSA. More reliable = the autoalign function from the original autoalign_dynamo repository
+    
+    prompt = 'Which version of autoalign would you like to use? Minimised residuals (recommended) (type: residuals) or minimised errors (type: errors). See README for details.'; 
+    version = input(prompt,'s');
+    
     %%% Attempt to 
     while true
         [ts_directory, processed] = next_dir(ts_dir, processed);
@@ -27,8 +32,14 @@ function dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_
         % try to align tilt series
         if isfile(stack)
             try
-                final_dir_name = autoalign(stack, basename, rawtlt, apix, fiducial_diameter_nm, min_markers, output_folder);
+                if version == 'residuals'
+			final_dir_name = autoalign(stack, basename, rawtlt, apix, fiducial_diameter_nm, min_markers, output_folder);
+		elif version == 'errors'
+			final_dir_name = autoalign_original(stack, basename, rawtlt, apix, fiducial_diameter_nm, output_folder);
+		else
+			disp('Not correctly specified which version of autoalign you want to use, skipping. Type either: residuals or errors when prompted');
                 tiltalign(final_dir_name, nominal_rotation_angle, apix)
+		end
             catch ME
                 handle_exception(ME)
             end

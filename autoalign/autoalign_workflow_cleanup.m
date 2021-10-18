@@ -3,6 +3,7 @@ function ts_dir_name_full = autoalign_workflow_cleanup(workflow_folder, ts_dir_n
 
     % File names
     ts_dir_name_full = fullfile(workflows_folder, ts_dir_name);
+    test_dir_name = fullfile(workflows_folder, ['test' + ts_dir_name])
     align_folder = fullfile(workflow_folder, 'align');
     config_folder = fullfile(workflow_folder, 'configFiles');
     detection_folder = fullfile(workflow_folder, 'detection');
@@ -16,6 +17,7 @@ function ts_dir_name_full = autoalign_workflow_cleanup(workflow_folder, ts_dir_n
         rmdir(config_folder, 's');
         rmdir(detection_folder, 's');
         rmdir(intermediate_markers_folder, 's');
+	rmdir(test_dir_name, 's');
     catch
         
     end

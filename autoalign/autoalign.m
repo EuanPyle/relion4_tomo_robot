@@ -12,7 +12,7 @@ function final_dir_name = autoalign(stack, workflow_name, tilt_angles, apix, fid
     
     residuals_threshold=10; %For the Tilt Gap Filler. Default 10. 5 or 10 is recommended.  
         
-    %Test_TS
+    %Test_TS - this finds the target residual level for the TSA
     
     clear workflow
     
@@ -131,8 +131,7 @@ function final_dir_name = autoalign(stack, workflow_name, tilt_angles, apix, fid
     workflow.area.refinement.step.finalSelection.parameterSet.minimumAmountOfMarkersPerMicrograph(min_markers);
     workflow.run.area.refinement();
 
-
-    while res1b>res1+step+0.001 && res2b>res2+step+0.001
+	while res1b>res1+step+0.001 && res2b>res2+step+0.001
 	    res1b=res1b-step;
 	    res2b=res2b-step;
 	    workflow.area.refinement.step.trimMarkers.parameterSet.maximalResidualObservation(res1b);
@@ -210,7 +209,6 @@ function final_dir_name = autoalign(stack, workflow_name, tilt_angles, apix, fid
 	workflow.area.refinement.step.finalSelection.parameterSet.minimumAmountOfMarkersPerMicrograph(min_markers);
 	workflow.run.area.refinement();
 
-
 	while res1b>res1+step+0.001 && res2b>res2+step+0.001
 	    res1b=res1b-step;
 	    res2b=res2b-step;
@@ -234,9 +232,14 @@ function final_dir_name = autoalign(stack, workflow_name, tilt_angles, apix, fid
         %%% Cleanup
         final_dir_name = autoalign_workflow_cleanup(workflow_folder, workflow_name, workflows_folder);
     
-    catch
-	message='Failed on this tomogram';
-	dwrite(message,['failed_TSA_' basename '.em']);
+        catch
+		try
+		clear workflow
+		final_dir_name = autoalign(stack, basename, rawtlt, apix, fiducial_diameter_nm, output_folder);
+		catch
+		message='Failed on this tomogram';
+		dwrite(message,['failed_on_tilt_series_' basename '.em']);
+end
 end
 end
 end
