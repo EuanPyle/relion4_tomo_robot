@@ -13,11 +13,11 @@ function ts_dir_name_full = autoalign_workflow_cleanup(workflow_folder, ts_dir_n
     
     % Try to remove not needed folders
     try
-        rmdir(align_folder, 's');
-        rmdir(config_folder, 's');
-        rmdir(detection_folder, 's');
-        rmdir(intermediate_markers_folder, 's');
-	rmdir(test_dir_name, 's');
+        rmdir(align_folder, 's')
+        rmdir(config_folder, 's')
+        rmdir(detection_folder, 's')
+        rmdir(intermediate_markers_folder, 's')
+	rmdir(test_dir_name, 's')
     catch
         
     end
@@ -33,9 +33,9 @@ function ts_dir_name_full = autoalign_workflow_cleanup(workflow_folder, ts_dir_n
     new_rawtlt_file = [name, ext];
 
     % move files into right places
-    movefile(markers_model_file_imod, fullfile(workflow_folder, new_markers_file));
-    movefile(nominal_tilt_angles, fullfile(workflow_folder, new_rawtlt_file));
-    
+    movefile(markers_model_file_imod, fullfile(workflows_folder, new_markers_file));
+    movefile(nominal_tilt_angles, fullfile(workflows_folder, new_rawtlt_file));
+   
     % move intermediate dynamo workflow folder to final folder with correct name
-    movefile(workflow_folder, ts_dir_name_full);
+    movefile(workflows_folder, ts_dir_name_full);
 end

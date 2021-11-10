@@ -235,7 +235,7 @@ function final_dir_name = autoalign(stack, workflow_name, tilt_angles, apix, fid
         catch
 		try
 		clear workflow
-		final_dir_name = autoalign(stack, basename, rawtlt, apix, fiducial_diameter_nm, output_folder);
+		final_dir_name = autoalign_original(stack, workflow_name, tilt_angles, apix, fiducial_diameter_nm, workflows_folder); 
 		catch
 		message='Failed on this tomogram';
 		dwrite(message,['failed_on_tilt_series_' basename '.em']);
