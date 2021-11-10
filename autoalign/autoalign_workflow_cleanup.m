@@ -2,8 +2,8 @@ function ts_dir_name_full = autoalign_workflow_cleanup(workflow_folder, ts_dir_n
     %%%%% cleanup unnecessary files in workflow folder and rename to have proper name 
 
     % File names
-    ts_dir_name_full = fullfile(workflows_folder, ts_dir_name);
-    test_dir_name = fullfile(workflows_folder, strcat('test',ts_dir_name));
+    ts_dir_name_full = fullfile(workflows_folder, ts_dir_name));
+    test_dir_name = fullfile(workflows_folder, strcat((strcat('test',ts_dir_name)),'.AWF'));
     align_folder = fullfile(workflow_folder, 'align');
     config_folder = fullfile(workflow_folder, 'configFiles');
     detection_folder = fullfile(workflow_folder, 'detection');
