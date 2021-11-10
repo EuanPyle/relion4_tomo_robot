@@ -4,6 +4,7 @@ function ts_dir_name_full = autoalign_workflow_cleanup(workflow_folder, ts_dir_n
     % File names
     ts_dir_name_full = fullfile(workflows_folder, ts_dir_name));
     test_dir_name = fullfile(workflows_folder, strcat((strcat('test',ts_dir_name)),'.AWF'));
+    remove_awf = fullfile(workflows_folder, strcat(ts_dir_name,'.AWF'));
     align_folder = fullfile(workflow_folder, 'align');
     config_folder = fullfile(workflow_folder, 'configFiles');
     detection_folder = fullfile(workflow_folder, 'detection');
@@ -38,4 +39,9 @@ function ts_dir_name_full = autoalign_workflow_cleanup(workflow_folder, ts_dir_n
    
     % move intermediate dynamo workflow folder to final folder with correct name
     movefile(workflows_folder, ts_dir_name_full);
+    
+    try
+    	rmdir(remove_awf, 's')
+    catch
+    end
 end
