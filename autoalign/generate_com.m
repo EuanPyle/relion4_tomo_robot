@@ -9,7 +9,7 @@ function generate_com(ts_dir, x_dim, y_dim, thickness)
 %%% List of already processed tilt-series
 processed = {};
         
-prompt = 'Would you like to use the provided template for the tilt.com and newst.com files (default) (y) or to use your own templates (n)? (y/n)'; 
+prompt = 'Would you like to use the provided template for the tilt.com and newst.com files (default) (y) or to use your own templates (n)? (y/n) \n:'; 
     
 version_com = input(prompt,'s');
 
