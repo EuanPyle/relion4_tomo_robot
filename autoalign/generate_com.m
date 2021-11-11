@@ -27,19 +27,12 @@ end
 
 if isfile(newst_com) & isfile(tilt_com)
 
-while true
-        
 	[ts_directory, processed] = next_dir(ts_dir, processed);
-        
-        if ischar(ts_directory)
-                autoalign_sleep(processed)
-                continue
-        end
     	
 	current_ts = fullfile(ts_directory.folder, ts_directory.name);
 	
 	com_file_spoofer(current_ts, x_dim, y_dim, thickness, newst_com, tilt_com);
-end
+
 
 else
 	disp('Cannot generate either newst.com or tilt.com file. If you gave a path to the newst or tilt.com files, check it is correct.');
