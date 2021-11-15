@@ -20,7 +20,9 @@ RELION 4 also requires a tomogram_descr.star file (last thing, really!) which de
 
 #### You can now import into RELION! 
 
-You can now use RELIONs [relion_tomo_reconstruct_tomogram](https://relion.readthedocs.io/en/release-4.0/Reference/STA/Programs/reconstruct_tomogram.html#program-tomo-reconstruct-tomogram) function to generate tomograms to pick particles on! If you use Dynamo to pick particles, you can convert the Dynamo table containing particle coordinates to a coordinates star file using [this package](https://github.com/EuanPyle/dynamo2relion).
+You can now use RELIONs [relion_tomo_reconstruct_tomogram](https://relion.readthedocs.io/en/release-4.0/Reference/STA/Programs/reconstruct_tomogram.html#program-tomo-reconstruct-tomogram) function to generate tomograms and start picking particles! 
+
+If you use Dynamo to pick particles, you can convert the Dynamo table to a coordinates star file using [this package](https://github.com/EuanPyle/dynamo2relion).
 
 Please note, the latter stages of this workflow (i.e. generate_tilt_order/run_CTFFIND/generate_tomo_descr) are optimised for data collected on a Krios. If your data was not collected in this manner, you may have to adjust a few of the scripts yourself so that it outputs the correct parameters.
 
