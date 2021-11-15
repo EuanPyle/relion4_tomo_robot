@@ -32,12 +32,14 @@ for i=2:2:seq_ntilt
     end
     seq(i+1,2)=-seq(i,2); 
 end
+elseif scheme == 'bidi_+ve' 
+seq(:,2) = [0:tilt_increments:max_tilt_angle,-tilt_increments:-tilt_increments:-max_tilt_angle]';
+elseif scheme == 'bidi_-ve' 
+seq(:,2) = [0:-tilt_increments:-max_tilt_angle,tilt_increments:tilt_increments:max_tilt_angle]';
 else
     disp('Sorry, this program does not currently support your choice of tilt scheme.')
     return
 end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ADD OTHER DOSE SCHEMES HERE
 
 seq = seq(1:seq_ntilt,:);
 seq(:,1)=[1:seq_ntilt];
