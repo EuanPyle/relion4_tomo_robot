@@ -12,7 +12,7 @@ RELION 4 also requires the newst.com and tilt.com files which would have been ge
 
 RELION 4 also requires a csv file for each tilt series describing the order in which the images were taken. If you have collected your data using a dose-symmetric or bidirectional tilt scheme, you can use generate_tilt_order for each of these files. For other tilt series aquistions schemes, it won't be too hard to generate these yourself, or just contact me and I might add them.
 
-RELION 4 also requires CTF estimation for each tilt series. We have included a wrapper (run_CTFFIND) for CTFFIND to generate CTF estimations for each tilt series.
+RELION 4 also requires CTF estimation for each tilt series. We have included a wrapper (import_ctffind and ctffind_wrapper) for CTFFIND to generate CTF estimations for each tilt series with image masked, if desired.
 
 RELION 4 also requires a tomogram_descr.star file (last thing, really!) which describes each tomogram in your dataset. This can be generated using generate_tomo_descr.
 
