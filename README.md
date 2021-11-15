@@ -22,8 +22,6 @@ You can now use RELIONs [relion_tomo_reconstruct_tomogram](https://relion.readth
 
 If you use Dynamo to pick particles, you can convert the Dynamo table to a coordinates star file using [this package](https://github.com/EuanPyle/dynamo2relion).
 
-Please note, the latter stages of this workflow (i.e. generate_tilt_order/run_CTFFIND/generate_tomo_descr) are optimised for data collected on a Krios. If your data was not collected in this manner, you may have to adjust a few of the scripts yourself so that it outputs the correct parameters.
-
 #### Installation
 #### Requirements
 - Dynamo (1.1.478 or later) activated in MATLAB
