@@ -1,4 +1,4 @@
-## Robot to Go From Tilt Series Stack to Reconstructed Tomograms for RELION 4.0 
+## Automated Workflow to Go From Tilt Series Stacks to Reconstructed Tomograms for RELION 4.0 
 
 #### Motivation
 
