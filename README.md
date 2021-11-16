@@ -1,4 +1,4 @@
-## Automated Workflow to Go From Tilt Series Stacks to Reconstructed Tomograms for RELION 4.0 
+## Automated Workflow From Tilt Series to Reconstructed Tomograms for RELION 4.0 
 
 #### Motivation
 
