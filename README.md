@@ -6,7 +6,7 @@ This package takes you all the way from an image stack and a rawtlt file to tomo
 
 #### Outline
 
-First, we use **dautoalign4relion** (partially based on [autoalign4warp by Alister Burt](https://github.com/alisterburt/autoalign_dynamo)) to carry out automated TSA. We have made significant modifications to the Dynamo TSA scripts which reduce the residual motion of the fiducial markers from the alignment to a minimum. Annecdotally, we have found that this function performs TSA as well as carefully manually picking gold beads in IMOD but in far less time.
+First, we use **dautoalign4relion** (partially based on [autoalign4warp by Alister Burt](https://github.com/alisterburt/autoalign_dynamo)) to carry out automated TSA. We have made significant modifications to the Dynamo TSA scripts which reduce the residual motion of the fiducial markers to a minimum. Annecdotally, we have found that this function performs TSA as well as carefully manually picking gold beads in IMOD but in far less time.
 
 Then we use **generate_com** to create the newst.com and tilt.com files required by RELION 4.
 
