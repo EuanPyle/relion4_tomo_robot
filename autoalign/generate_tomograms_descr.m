@@ -20,13 +20,17 @@ current_ts = fullfile(ts_directory.folder, ts_directory.name);
 
 tomo_name = ts_directory.name;
     
-if ext == '.st'
+if contains(ext,'st')
 
     tomo_location = [ts_dir '/' tomo_name '/' tomo_name '.st:mrc']; 
 
-else 
+elseif contains(ext,'mrc')
    
     tomo_location = [ts_dir '/' tomo_name '/' tomo_name '.mrc'];
+else 
+    
+    disp('Extension not recognised. At the moment, only .st and .mrc are. Let me know if you''re using another');
+    return
 	
 end
 
