@@ -6,23 +6,7 @@ set strip=`echo $1 | sed 's/.mrc//'`
 set suffix = "_output.mrc"
 set DESTDIR = $strip$suffix
 
-$3  
-$1 
-no
-$DESTDIR 
-$2 
-300.0 
-2.7 
-0.07 
-512 
-50.0 
-5.0 
-5000.0 
-50000.0 
-500.0 
-100.0 
-no
-###
+### CTFFIND INPUT PARAMETERS
 ###
 ###
 # 300=Voltage kV
@@ -38,4 +22,23 @@ no
 # no # Apply phase shift?
 ###
 ###
-###
+### ADJUST BELOW
+
+time $3 << eof  
+$1 
+no
+$DESTDIR 
+$2 
+300.0 
+2.7 
+0.07 
+512 
+50.0 
+5.0 
+5000.0 
+50000.0 
+500.0 
+100.0 
+no
+eof
+
