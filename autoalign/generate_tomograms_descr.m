@@ -2,8 +2,10 @@ function generate_tomograms_descr(ts_dir,ext,dose)
  
 processed = {};
 
+import_tomograms_descr;
+
 if ~isfile('tomograms_descr.star')
-    disp('Cannot find tomograms_descr.star in this directory. Re-run autoalign_activate and import_tomograms_descr');
+    disp('Cannot find tomograms_descr.star in this directory.');
     return
 end
     
