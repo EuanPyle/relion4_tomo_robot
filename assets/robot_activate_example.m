@@ -5,5 +5,5 @@ addpath([install_loc '/ctffind_wrappers']);
 addpath([install_loc '/relion_metadata_generators']);
 setenv('PATH', [install_loc, ':' PATH]);
 clear PATH
-disp("Successfully activated 'autoalign_dynamo'!")
+disp("Successfully activated 'relion_tomo_robot'!")
 
