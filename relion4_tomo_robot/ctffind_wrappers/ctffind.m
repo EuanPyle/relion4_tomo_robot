@@ -86,7 +86,7 @@ dwrite(cropped_stack_filt,[current_ts '/CTFFIND/CTFfind4In.mrc']);
     
 % run CTFFIND4
 disp('Running CTFFIND4...')
-[status,result] = system(['./CTFFIND_settings.csh ' current_ts '/CTFFIND/CTFfind4In.mrc ' apix ctffind_install]);
+[status,result] = system(['./CTFFIND_settings.csh ' current_ts '/CTFFIND/CTFfind4In.mrc ' num2str(apix) ' ' ctffind_install]);
 
 disp(['Finished for ' tomo_name]); 
     

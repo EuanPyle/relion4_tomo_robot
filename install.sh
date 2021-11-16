@@ -17,7 +17,7 @@ read install_dir
 # File Locations
 WORKING_DIR=$PWD
 ASSETS_DIR=${WORKING_DIR}/assets
-ROBOT_DIR=${WORKING_DIR}/relion_tomo_robot
+ROBOT_DIR=${WORKING_DIR}/relion4_tomo_robot
 ACTIVATION_SCRIPT_EXAMPLE=${ASSETS_DIR}/robot_activate_example.m
 ACTIVATION_SCRIPT=${ROBOT_DIR}/robot_activate.m
 
@@ -26,8 +26,8 @@ ACTIVATION_SCRIPT=${ROBOT_DIR}/robot_activate.m
 sed "s|XXX_INSTALL_LOC_XXX|${install_dir}|g" ${ACTIVATION_SCRIPT_EXAMPLE} > ${ACTIVATION_SCRIPT}
 
 # Add executable permissions to tiltalign_wrapper.sh and get_tasolution.py
-tiltalign_wrapper=${ROBOT_DIR}/tiltalign_wrapper.sh
-get_tasolution=${ROBOT_DIR}/get_tasolution.py
+tiltalign_wrapper=${ROBOT_DIR}/autoalign/tiltalign_wrapper.sh
+get_tasolution=${ROBOT_DIR}/autoalign/get_tasolution.py
 
 for script in $tiltalign_wrapper $get_tasolution;
 do
