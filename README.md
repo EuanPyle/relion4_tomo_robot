@@ -1,4 +1,4 @@
-## Automated fiducial-based tilt-series alignment and metadata preparation for RELION 4.0 
+## Robot to Go From Tilt Series Stack to Reconstructed Tomograms for RELION 4.0 
 
 #### Motivation
 
