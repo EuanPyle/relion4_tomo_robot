@@ -1,12 +1,13 @@
 function dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_angle, min_markers, mode)
-    %%%%% Automatic on-the-fly alignment of a set of tilt series
-    %%% Parameters
+    % Automatic on-the-fly alignment of a set of tilt series
+    % Parameters: dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_angle, min_markers, mode)
+    % e.g. dautoalign4relion('TS_directory', 1.2, 5, 85, 4, 'default')
     % ts_dir - directory containing tilt series directories
     % apix - pixel size in angstroms of tilt series
     % fiducial_diameter_nm - fiducial diameter in nanometers
-    % nominal rotation angle - estimated tilt axis angle (CCW rotation from Y-axis)
-    % Dynamo will delete beads based on worse residuals: this sets the minimum number of beads per tilt before stopping deleting beads. An absolute minimum of 3 is required, but 4 is recommended.
-    %For mode either type: default or fast_mode
+    % nominal rotation angle - estimated tilt axis angle (CCW rotation from Y-axis). This is not the value of the tilt increments of your tilt series!
+    % min_markers: An absolute minimum of 3 is required, but 4 is recommended. Dynamo will delete beads based on worse residuals: this sets the minimum number of beads per tilt before stopping deleting beads. 
+    %For mode either type: 'default' or 'fast_mode'. Default will give a better alignment but will take longer. 
     
     command = ['point2model'];
     [status,cmdout] = system(command);
@@ -35,9 +36,9 @@ function dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_
         if isfile(stack)
             try
 	    	
-                if strcmp(mode,'default')
+                if contains(mode,'default')
 			final_dir_name = autoalign(stack, basename, rawtlt, apix, fiducial_diameter_nm, min_markers, ts_dir);
-		elseif strcmp(mode,'fast_mode')
+		elseif contains(mode,'fast')
 			disp('Running fast_mode');
 			final_dir_name = autoalign_original(stack, basename, rawtlt, apix, fiducial_diameter_nm, ts_dir);
 		else

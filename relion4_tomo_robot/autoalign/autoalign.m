@@ -1,14 +1,14 @@
 function final_dir_name = autoalign(stack, workflow_name, tilt_angles, apix, fiducial_diameter_nm, min_markers, workflows_folder)
     %%% Parameter descriptions
-    % stack - filepath of tilt series stack in mrc format
+    % stack - filepath of tilt series stack
     % workflow_name - name of workflow to be saved i.e. 'TS_298'
     % tilt_angles - filepath to text file containing tilt angles (IMOD format tlt/rawtlt) 
     % apix - pixel size in angstroms of tilt series
     % fiducial_diameter_nm - diameter of fiducials in nanometers
-    % Dynamo will delete beads based on worse residuals: this sets the minimum number of beads per tilt before stopping deleting beads. An absolute minimum of 3 is required, but 4 is recommended.
+    % min_markers - Dynamo will delete beads based on worse residuals: this sets the minimum number of beads per tilt before stopping deleting beads. An absolute minimum of 3 is required, but 4 is recommended.
     % workflows folder - directory in which to save the workflow e.g. direct path to 'output;
         
-    step=0.2; %Step by which threshold is reduced 
+    step=0.2; %Step by which threshold is reduced. Increasing this often yields much worse results. Lowering it will increase program running time.
     
     residuals_threshold=10; %For the Tilt Gap Filler. Default 10. 5 or 10 is recommended.  
         
@@ -17,7 +17,7 @@ function final_dir_name = autoalign(stack, workflow_name, tilt_angles, apix, fid
     clear workflow
     
     %%% Prep names for marker and model files
-    [p, basename, ext] = fileparts(workflow_name); %p is the full path to the folder (without folder name included), basename is the file name, ext is the extention.
+    [p, basename, ext] = fileparts(workflow_name); 
     workflow_folder = fullfile(workflows_folder, strcat('test', basename, '.AWF')); %Should create a folder called testTS_???.AWF in output
     markers_file = fullfile(workflow_folder, 'workingMarkers.dms');
     model_file = fullfile(workflow_folder, 'workingMarkers.mod');
@@ -130,6 +130,8 @@ function final_dir_name = autoalign(stack, workflow_name, tilt_angles, apix, fid
     workflow.area.refinement.step.trimMarkers.parameterSet.maximalMedianResidualMarker(res2b);
     workflow.area.refinement.step.finalSelection.parameterSet.minimumAmountOfMarkersPerMicrograph(min_markers);
     workflow.run.area.refinement();
+    
+    % Do not touch this while loop! Lowering residuals faster than a step of 0.2 yields worse results!
 
 	while res1b>res1+step+0.001 && res2b>res2+step+0.001
 	    res1b=res1b-step;
@@ -140,14 +142,10 @@ function final_dir_name = autoalign(stack, workflow_name, tilt_angles, apix, fid
 	
     end
 	
-    try 
+    try  %TiltGapFiller sometimes causes errors, if this happens the program will run again without it.
 	workflow.run.step.tiltGapFiller();
 	workflow.area.alignment.step.alignWorkingStack.parameterSet.alignmentBinLevel(3);
 	workflow.run.area.alignment();
-        
- 
-	%%% Run workflow up to refinement
-        %workflow.run.area.uptoRefinement(); %%%%%%
     
         %%% Create IMOD format model
         dms2mod(markers_file, model_file, stack);
@@ -222,9 +220,6 @@ function final_dir_name = autoalign(stack, workflow_name, tilt_angles, apix, fid
 	workflow.run.area.alignment();
 	
         %%%%%%%%%
-        
-        %%% Run workflow up to refinement
-        %workflow.run.area.uptoRefinement(); 
     
         %%% Create IMOD format model
         dms2mod(markers_file, model_file, stack);

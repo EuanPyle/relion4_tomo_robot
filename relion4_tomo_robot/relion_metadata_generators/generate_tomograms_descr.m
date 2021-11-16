@@ -1,5 +1,11 @@
 function generate_tomograms_descr(ts_dir,ext,dose)
- 
+% Generates the tomograms_descr.star file required by RELION 4
+% generate_tomograms_descr(ts_dir,ext,dose)
+% e.g. generate_tomograms_descr('ts_directory','.mrc',3.4);
+% ts_dir - directory containing tilt series directories
+% ext - the extension of your stack file. Only accepts .st and .mrc files
+% dose - dose per tilt of each image in e/A^2
+
 processed = {};
 
 import_tomograms_descr;

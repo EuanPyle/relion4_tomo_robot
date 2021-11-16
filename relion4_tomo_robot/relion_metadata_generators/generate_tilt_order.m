@@ -1,6 +1,12 @@
 function generate_tilt_order(ts_dir, scheme, max_tilt_angle, tilt_increments, n_flip)
-
 % Generates ideal placeholder tilt order file
+% generate_tilt_order(ts_dir, scheme, max_tilt_angle, tilt_increments, n_flip)
+% e.g. generate_tilt_order('ts_directory', 'dose_sym', 60, 3, 2)
+% ts_dir - directory containing tilt series directories
+% scheme can either be 'dose_sym' for dose symmetric tilt schemes, 'bidi_+ve' for bidirectional tilt schemes where the positive angles were aquired first (e.g. first images taken were angles: 0,3,6,9), 'bidi_-ve' for bidirectional tilt schemes where the negative angles were aquired first (e.g. first images taken were angles: 0,-3,-6,-9).
+% max_tilt_angle is the maximum positive tilt angle in your tilt series. For a tilt series collected between -60 and +60 degrees you would enter 60.
+% tilt_increments is the smallest angular increase between each tilt, e.g. for a tilt scheme first images taken were angles: 0,3,-3 -6 6 9 -9 -12; the tilt increment would be 3. 
+% n_flip is for dose_symmetric tilt schemes and refers to the number of tilts before the angular sign 'flips'. e.g. for a tilt scheme first images taken were angles: 0,3,-3 -6 6 9 -9 -12; n_flip would equal 2. For a tilt scheme first images taken were angles: 0,3,6,-3,-6,-9,9; n_flip would equal 3. For bidirectional tilt schemes this input should be left either blank: [], or any number you wish.
 
 template_tlt=tilt_template(scheme, max_tilt_angle, tilt_increments, n_flip);
 

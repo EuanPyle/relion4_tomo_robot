@@ -1,10 +1,13 @@
 function generate_com(ts_dir, x_dim, y_dim, thickness)
-    
 %This will generate the tilt.com and newst.com files needed for RELION 4. 
-    
-%You can either choose to use your own tilt and newst.com templates after a quick etomo reconstruction, or to use the template provided
-    
-%Using our template should be fine for most, but if you are getting errors or strange reconstructions, it may be best to use your own template gnerated by IMODs etomo program
+% generate_com(ts_dir, x_dim, y_dim, thickness)
+% e.g. generate_com('ts_directory', 5760, 4092, 3000) 
+% ts_dir - directory containing tilt series directories
+% x_dim - unbinned dimensions of the image stack in X
+% y_dim - unbinned dimensions of the image stack in Y
+% thickness - unbinned thickness of the tomogram. We tend to use a value of 3000
+%%You will be prompeted to either choose to use the template provided (recommended) or if the tomograms produced look strange, you can use your own tilt and newst.com templates after a quick etomo reconstruction. Note, the latter way is error prone.   
+%%Using our template should be fine for most, but if you are getting errors or strange reconstructions, it may be best to use your own template gnerated by IMODs etomo program
     
 %%% List of already processed tilt-series
 processed = {};

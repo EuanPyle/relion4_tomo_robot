@@ -1,4 +1,5 @@
 function import_ctffind
+%Imports ctffind settings
 try
 	command = ['cp ' install_loc '/ctffind_wrappers/CTFFIND4_settings_template.csh ./CTFFIND_settings.csh'];
 	system(command);

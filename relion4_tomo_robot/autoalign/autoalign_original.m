@@ -1,6 +1,6 @@
 function final_dir_name = autoalign_original(stack, workflow_name, tilt_angles, apix, fiducial_diameter_nm, workflows_folder)
     %%% Parameter descriptions
-    % stack - filepath of tilt series stack in mrc format
+    % stack - filepath of tilt series stack
     % workflow_name - name of workflow to be saved
     % tilt_angles - filepath to text file containing tilt angles (IMOD format tlt/rawtlt)
     % apix - pixel size in angstroms of tilt series
