@@ -1,4 +1,4 @@
-function dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_angle, min_markers, mode)
+function dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_angle, mode)
     % Automatic on-the-fly alignment of a set of tilt series
     % Parameters: dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_angle, min_markers, mode)
     % e.g. dautoalign4relion('TS_directory', 1.2, 5, 85, 4, 'default')
@@ -6,7 +6,6 @@ function dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_
     % apix - pixel size in angstroms of tilt series
     % fiducial_diameter_nm - fiducial diameter in nanometers
     % nominal rotation angle - estimated tilt axis angle (CCW rotation from Y-axis). This is not the value of the tilt increments of your tilt series!
-    % min_markers: An absolute minimum of 3 is required, but 4 is recommended. Dynamo will delete beads based on worse residuals: this sets the minimum number of beads per tilt before stopping deleting beads. 
     %For mode either type: 'default' or 'fast_mode'. Default will give a better alignment but will take longer. 
     
     command = ['point2model'];
@@ -19,6 +18,9 @@ function dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_
     
     %%% List of already processed tilt-series
     processed = {};
+    
+    % Minimum number of markers the TSA needs per tilt. 4 seems to be optimal, do not change. 
+    min_markers = 4;
     
     %%% Attempt to 
     while true
