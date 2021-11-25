@@ -1,16 +1,26 @@
 function generate_metadata(ts_dir,ext,scheme,n_flip,dose,thickness)
-%This will generate the metadata needed for RELION 4, including the newst.com & tilt.com files, the tilt order list, and the tomograms_descr.star file
-% generate_metadata(ts_dir, ext, tilt_scheme, n_flip, dose, tomo_thickness) 
-% ts_dir - directory containing tilt series directories
-% ext - the extension of your stack file. Only accepts .st and .mrc files
-% tilt_scheme can either be 'dose_sym' for dose symmetric tilt schemes, 'bidi_+ve' for bidirectional tilt schemes where the positive angles were aquired first (e.g. first images taken were angles: 0,3,6,9), 'bidi_-ve' for bidirectional tilt schemes where the negative angles were aquired first (e.g. first images taken were angles: 0,-3,-6,-9)
-% n_flip is for dose_symmetric tilt schemes and refers to the number of tilts before the angular sign 'flips'. e.g. for a tilt scheme first images taken were angles: 0,3,-3 -6 6 9 -9 -12; n_flip would equal 2. For a tilt scheme first images taken were angles: 0,3,6,-3,-6,-9,9; n_flip would equal 3. For bidirectional tilt schemes this input should be left either blank: [], or any number you wish.
-% dose - dose per tilt of each image in e/A^2
-% tomo_thickness - unbinned thickness of the tomogram to be generated. We tend to use a value of 3000
-%%%% For newst/tilt.com files, you will be prompeted to either choose to use the template provided (recommended) or if the tomograms produced look strange, you can use your own tilt and newst.com templates after a quick etomo reconstruction. Note, the latter way is error prone.
+%This function will generate the metadata needed for RELION 4, including the newst.com & tilt.com files, the tilt order list, and the tomograms_descr.star file
+% Dynamo and IMOD must be loaded in this terminal window for this function to work
+% The function inputs are: generate_metadata(ts_dir, ext, tilt_scheme, n_flip, dose, tomo_thickness) 
+% Where: 
+%ts_dir = directory containing tilt series directories
+% ext = the extension of your stack file. Only accepts .st and .mrc files
+% tilt_scheme = the tilt scheme your data was collected in. This can either be 'dose_sym' for dose symmetric tilt schemes, 'bidi_+ve' for bidirectional tilt schemes where the positive angles were aquired first (e.g. first images taken were angles: 0,3,6,9), 'bidi_-ve' for bidirectional tilt schemes where the negative angles were aquired first (e.g. first images taken were angles: 0,-3,-6,-9)
+% n_flip = for dose_symmetric tilt schemes and refers to the number of tilts before the angular sign 'flips'. e.g. for a tilt scheme first images taken were angles: 0,3,-3 -6 6 9 -9 -12; n_flip would equal 2. For a tilt scheme first images taken were angles: 0,3,6,-3,-6,-9,9; n_flip would equal 3. 
+%NOTE: For bidirectional tilt schemes n_flip should be left either blank: [], or any number you wish.
+% dose = dose per tilt of each image in e/A^2
+% tomo_thickness = unbinned thickness of the tomogram to be generated. We tend to use a value of 3000
+%%%%% For newst/tilt.com files, you will be prompeted to either choose to use the template provided (recommended) or if the tomograms produced look strange, you can use your own tilt and newst.com templates after a quick etomo reconstruction. Note, the latter way is error prone.
     
 %%% List of already processed tilt-series
 processed = {};
+
+if nargin <= 5
+    disp('Not enough input arguments') 
+    disp('The function inputs are: generate_metadata(ts_dir, ext, tilt_scheme, n_flip, dose, tomo_thickness)')
+    disp('Type: help generate_metadata; for more information'); 
+    return
+end
 
 %Check IMOD is loaded
 command = ['point2model'];
