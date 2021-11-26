@@ -1,7 +1,7 @@
 function dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_angle, mode)
     % Automatic on-the-fly alignment of a set of tilt series
-    % Parameters: dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_angle, min_markers, mode)
-    % e.g. dautoalign4relion('TS_directory', 1.2, 5, 85, 4, 'default')
+    % Parameters: dautoalign4relion(ts_dir, apix, fiducial_diameter_nm, nominal_rotation_angle, mode)
+    % e.g. dautoalign4relion('TS_directory', 1.2, 5, 85, 'default')
     % ts_dir - directory containing tilt series directories
     % apix - pixel size in angstroms of tilt series
     % fiducial_diameter_nm - fiducial diameter in nanometers

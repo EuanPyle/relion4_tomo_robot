@@ -1,16 +1,15 @@
 function ts_dir_name_full = autoalign_workflow_cleanup(workflow_folder, ts_dir_name, workflows_folder)
     %%%%% cleanup unnecessary files in workflow folder and rename to have proper name 
-
+    
     % File names
-    ts_dir_name_full = fullfile(workflows_folder, ts_dir_name);
-    test_dir_name = fullfile(workflows_folder, strcat((strcat('test',ts_dir_name)),'.AWF'));
-    remove_awf = fullfile(workflows_folder, strcat(ts_dir_name,'.AWF'));
-    align_folder = fullfile(workflow_folder, 'align');
-    config_folder = fullfile(workflow_folder, 'configFiles');
-    detection_folder = fullfile(workflow_folder, 'detection');
-    intermediate_markers_folder = fullfile(workflow_folder, 'markersIntermediate');
-    markers_model_file_imod = fullfile(workflow_folder, 'workingMarkers.mod');
-    nominal_tilt_angles = fullfile(workflow_folder, 'workingMarkers.tlt');
+    ts_dir_name_full = fullfile(workflows_folder, ts_dir_name)
+    test_dir_name = fullfile(workflows_folder, strcat('test',ts_dir_name,'.AWF'))
+    align_folder = fullfile(workflow_folder, 'align')
+    config_folder = fullfile(workflow_folder, 'configFiles')
+    detection_folder = fullfile(workflow_folder, 'detection')
+    intermediate_markers_folder = fullfile(workflow_folder, 'markersIntermediate')
+    markers_model_file_imod = fullfile(workflow_folder, 'workingMarkers.mod')
+    nominal_tilt_angles = fullfile(workflow_folder, 'workingMarkers.tlt')
     
     % Try to remove not needed folders
     try
@@ -34,14 +33,9 @@ function ts_dir_name_full = autoalign_workflow_cleanup(workflow_folder, ts_dir_n
     new_rawtlt_file = [name, ext];
 
     % move files into right places
-    movefile(markers_model_file_imod, fullfile(workflows_folder, new_markers_file));
-    movefile(nominal_tilt_angles, fullfile(workflows_folder, new_rawtlt_file));
+    movefile(markers_model_file_imod, fullfile(ts_dir_name_full, new_markers_file));
+    movefile(nominal_tilt_angles, fullfile(ts_dir_name_full, new_rawtlt_file));
    
     % move intermediate dynamo workflow folder to final folder with correct name
-    movefile(workflows_folder, ts_dir_name_full);
-    
-    try
-    	rmdir(remove_awf, 's')
-    catch
-    end
+    movefile(workflow_folder, ts_dir_name_full);
 end

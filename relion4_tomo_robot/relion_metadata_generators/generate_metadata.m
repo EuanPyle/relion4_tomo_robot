@@ -78,9 +78,13 @@ while true
 	
 	[status,header_string] = system(command);
 	
-	header_string = extractBetween(header_string,'Number of columns, rows, sections .....    ','Map mode');
+	header_string = strsplit(header_string,'\n');
 	
-	header_string = str2num(header_string{:});
+	header_string = header_string(contains(header_string,'Number of columns, rows, sections'));
+	
+	header_string = erase(header_string{:},'Number of columns, rows, sections .....');
+	
+	header_string = str2num(header_string);
 				
 	x_dim = header_string(1);
 	
