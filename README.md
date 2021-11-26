@@ -1,4 +1,4 @@
-## Automated Dynamo/Python-based Workflow From Raw Images to Import and Tomogram Reconstruction in RELION 4.0 
+## Automated Workflow to Pre-Process Raw Tomography Data for RELION 4.0 
 
 #### Outline
 
