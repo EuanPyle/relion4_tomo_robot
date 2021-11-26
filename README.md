@@ -18,7 +18,7 @@ We then estimate the CTF of the stacks by running **import_ctf** then using a CT
 
 #### You can now import into [RELION](https://relion.readthedocs.io/en/release-4.0/STA_tutorial/ImportTomo.html)! 
 
-We have integrated a wrapper of RELION's [relion_tomo_reconstruct_tomogram](https://relion.readthedocs.io/en/release-4.0/Reference/STA/Programs/reconstruct_tomogram.html#program-tomo-reconstruct-tomogram) function called **generate_tomograms** to generate tomograms. 
+We have integrated a wrapper of RELION's [relion_tomo_reconstruct_tomogram](https://relion.readthedocs.io/en/release-4.0/Reference/STA/Programs/reconstruct_tomogram.html#program-tomo-reconstruct-tomogram) function called **reconstruct_tomo_wrapper** to generate tomograms. 
 
 #### Now you can start picking particles! 
 
