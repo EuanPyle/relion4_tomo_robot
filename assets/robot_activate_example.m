@@ -3,6 +3,7 @@ PATH = getenv('PATH');
 addpath(['XXX_INSTALL_LOC_XXX' '/autoalign']);
 addpath(['XXX_INSTALL_LOC_XXX' '/ctffind_wrappers']);
 addpath(['XXX_INSTALL_LOC_XXX' '/relion_metadata_generators']);
+addpath(['XXX_INSTALL_LOC_XXX' '/reconstruct_tomo']);
 setenv('PATH', [install_loc, ':' PATH]);
 setenv('PATH', [[install_loc,'/autoalign'], ':' PATH]);
 clear PATH

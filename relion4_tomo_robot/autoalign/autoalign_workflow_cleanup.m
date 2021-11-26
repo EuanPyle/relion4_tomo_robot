@@ -2,14 +2,14 @@ function ts_dir_name_full = autoalign_workflow_cleanup(workflow_folder, ts_dir_n
     %%%%% cleanup unnecessary files in workflow folder and rename to have proper name 
     
     % File names
-    ts_dir_name_full = fullfile(workflows_folder, ts_dir_name)
-    test_dir_name = fullfile(workflows_folder, strcat('test',ts_dir_name,'.AWF'))
-    align_folder = fullfile(workflow_folder, 'align')
-    config_folder = fullfile(workflow_folder, 'configFiles')
-    detection_folder = fullfile(workflow_folder, 'detection')
-    intermediate_markers_folder = fullfile(workflow_folder, 'markersIntermediate')
-    markers_model_file_imod = fullfile(workflow_folder, 'workingMarkers.mod')
-    nominal_tilt_angles = fullfile(workflow_folder, 'workingMarkers.tlt')
+    ts_dir_name_full = fullfile(workflows_folder, ts_dir_name);
+    test_dir_name = fullfile(workflows_folder, strcat('test',ts_dir_name,'.AWF'));
+    align_folder = fullfile(workflow_folder, 'align');
+    config_folder = fullfile(workflow_folder, 'configFiles');
+    detection_folder = fullfile(workflow_folder, 'detection');
+    intermediate_markers_folder = fullfile(workflow_folder, 'markersIntermediate');
+    markers_model_file_imod = fullfile(workflow_folder, 'workingMarkers.mod');
+    nominal_tilt_angles = fullfile(workflow_folder, 'workingMarkers.tlt');
     
     % Try to remove not needed folders
     try

@@ -2,7 +2,7 @@ function ctffind_wrapper(ts_dir, ext, apix, mask_size, ctffind_install)
 % Wrapper for CTFFIND4. This masks your tilt series according to the tilt of each image so the same area is always used for CTF estimation across the tilt series. 
 % YOU MUST RUN: import_ctffind; BEFORE RUNNING THIS PROGRAM
 % ctffind_wrapper(ts_dir, ext, apix, mask_size, ctffind_install)
-% e.g. ctffind_wrapper('ts_directory', 1.38, 90, '/s/emib/s/ctffind4/v4.0.17/ctffind')
+% e.g. ctffind_wrapper('ts_directory','.st', 1.38, 90, '/s/emib/s/ctffind4/v4.0.17/ctffind')
 % ts_dir - directory containing tilt series directories
 % ext = the extension of your stack file. Only accepts .st and .mrc files
 % apix - unbinned pixel size in A
@@ -64,7 +64,7 @@ while true
 	
 	header_string = header_string(contains(header_string,'Number of columns, rows, sections'));
 	
-	header_string = erase(header_string{:},'Number of columns, rows, sections .....')
+	header_string = erase(header_string{:},'Number of columns, rows, sections .....');
 	
 	header_string = str2num(header_string);
 				
