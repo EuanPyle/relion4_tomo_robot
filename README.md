@@ -60,7 +60,8 @@ If not already, activate/load IMOD, Python 3, and MotionCor2.
 In Matlab, activate Dynamo with dynamo_activate. Activate the tomo_robot with run /path/to/install/relion_robot.m
 
 To see the required/optional inputs for each function:
-
+```bash
 help [function]
+```
 
 The available functions, in the order they should be used, are: **dautoalign4relion**, **generate_metadata**, **import_ctf**, **ctffind_wrapper**, and after importing tomograms into RELION, **reconstruct_tomo_wrapper**.
