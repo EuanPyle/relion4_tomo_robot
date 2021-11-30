@@ -55,7 +55,7 @@ You will be asked where you would like to install the package, the default locat
 /opt/relion4_tomo_robot
 ```
 
-If not already, activate/load IMOD, Python 3, and MotionCor2. 
+If not already, activate/load IMOD, Python 3, and MotionCor2 so these programs can be invoked from the command line.
 
 Pre-process your data using the preprocessing.py function in the preprocessing directory where the program was installed. Copy the scripts in this directory into the directory where your raw data is. View the options for preprocessing using: 
 
