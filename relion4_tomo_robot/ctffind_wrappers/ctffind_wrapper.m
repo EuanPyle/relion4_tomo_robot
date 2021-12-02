@@ -4,7 +4,7 @@ function ctffind_wrapper(ts_dir, ext, apix, mask_size, ctffind_install)
 % ctffind_wrapper(ts_dir, ext, apix, mask_size, ctffind_install)
 % e.g. ctffind_wrapper('ts_directory','.st', 1.38, 90, '/s/emib/s/ctffind4/v4.0.17/ctffind')
 % ts_dir - directory containing tilt series directories
-% ext = the extension of your stack file. Only accepts .st and .mrc files
+% ext = the extension of your stack file. Only accepts .st and .mrc files e.g. '.st' or '.mrc'
 % apix - unbinned pixel size in A
 % mask_size - given in percentage of the smaller of the two X/Y dimensions. 100 gives an uncropped image. 90 keeps 90% of the image, keeping the middle. This wrapper can crop your image so the edges of the image are not included in the CTF estimation. This is useful if the edges of you image contain carbon or grid bars. We don't recommend going below 75%.
 % ctffind_install - the installation location of ctffind, link to the program itself
