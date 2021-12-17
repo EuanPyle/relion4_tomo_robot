@@ -43,7 +43,7 @@ if mc_test == '':
     sys.exit()
     
 #Warning if tiff files are present but flag was not used
-if not(args.tiff_ext) and len(glob.glob('*.tif')) > 0:
+if not(args.tiff_ext) and len(glob.glob('*.tif*')) > 0:
     print('WARNING: .tif files are detected but you have not used the -tiff flag when running the script. MotionCor will not work for raw.tif files if you do not use this flag.') 
     answer = input('Do you want to continue? (y/n): ')
     if not(answer == 'y' or answer == 'Y' or answer == 'y ' or answer == 'Y '):
@@ -90,7 +90,7 @@ if not(args.tiff_ext):
             sys.exit()
 
 if args.tiff_ext:
-    if len(glob.glob('*_*_*_*.tif')) <= 2:
+    if len(glob.glob('*_*_*_*.tif*')) <= 2:
         print('Can only find 2 or fewer tiff image files to pre-process, are you sure you have your naming convention correct? Try: [Name]_[tilt_series_number]_[tilt_number]_[angle].tif; e.g. EP_100_001_3deg.tif')
         little_data = input('Continue? (y/n): ')
         if not(little_data == 'y' or little_data == 'Y' or little_data == 'y ' or little_data == 'Y '):
@@ -112,7 +112,7 @@ if not(args.tiff_ext):
 
 if args.tiff_ext:
     ts_list = list()
-    for i in glob.glob('*_*_*_*.tif'): 
+    for i in glob.glob('*_*_*_*.tif*'): 
         tomon = i.split('_')[1]
         ts_list.append(tomon)
     
@@ -164,11 +164,15 @@ if not(args.tiff_ext):
             os.system('MotionCor2 -inMrc ' + i + ' -outMrc ' + out_mrc + ' -Gain ' + args.gain_ref + ' -Patch 0 0 -Iter 7 -Tol 0.5 ' + rot + flip + '-LogFile ' + i + '.log')
 
 if args.tiff_ext:
-    motion_cor_list = glob.glob('*_*_*_*.tif')
+    motion_cor_list = glob.glob('*_*_*_*.tif*')
         
     for i in motion_cor_list:
-        
-        out_mrc = i.replace('.tif','_Sum.mrc')
+        ext_len_list = i.split('.tif')
+        ext_len = len(ext_len_list[1])
+        if ext_len > 0:
+            out_mrc = i.replace('.tiff','_Sum.mrc')
+        else:
+            out_mrc = i.replace('.tif','_Sum.mrc')	
         
         if exists(out_mrc):
             print('MotionCor2 already ran on this, skipping...')
