@@ -17,7 +17,7 @@ parser.add_argument('-gf', "--gain_flip", help='Sets the -FlipGain setting in Mo
 parser.add_argument('-gr', "--gain_rot", help='Sets the -RotGain setting in MotionCor2. Default = 0. See MotionCor2 -h; and/or consult the microscope operator for details')
 parser.add_argument('-is', "--ignore_stack", help='Skips stacking all the images together, use if your data was not collected in a dose-symmetric tilt scheme, or if your tilt scheme does not start at 0 degrees', action="store_true")
 parser.add_argument('-ti', "--tilt_increment", type=int, help='Enter the smallest tilt increment in the tilt series in degrees')
-parser.add_argument('-f', "--flip", type=int, help='Indicate the gain reference file')
+parser.add_argument('-f', "--flip", type=int, help='Indicate how often the sign of the tilt angle flips in a dose symmetric tilt scheme. For example, if the first image is 0 degrees, the second is 3, the third is -3, the sign of the image flips every 2 images so the value would be two. If the third image was 6 and the fourth was -3, the value would be three.')
 parser.add_argument('-s', "--super_res", help='Indicates your data was collected in Super Resolution mode as opposed to Counting mode', action="store_true")
 
 args=parser.parse_args()
