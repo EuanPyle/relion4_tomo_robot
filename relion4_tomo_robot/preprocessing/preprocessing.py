@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Raw image naming convention should follow rules: NAME_TSNUMBER_TILTNUMBER_anythingyouwant.mrc or tiff. Your tilt series must start at 0 degrees and be collected in a dose-symmetric scheme
+# Raw image naming convention should follow rules: NAME_TSNUMBER_TILTNUMBER_anythingyouwant.mrc or tif. Your tilt series must start at 0 degrees and be collected in a dose-symmetric scheme
 
 import argparse, os, sys, glob
 from os.path import exists
@@ -39,12 +39,12 @@ if imod_test == '':
 print('Testing MotionCor2 is loaded')
 mc_test = os.popen('MotionCor2').read()
 if mc_test == '':
-    print('Can\'t find MotionCor2, try loading MotionCor2 outside of this script first. Birkbeck users type: module load motioncor2/v1.0.5, or if raw files are .tiff, type: module load motioncor2/v1.1.0. If this still doesn\'t work, check you are on the staging server (ssh -X staging)')
+    print('Can\'t find MotionCor2, try loading MotionCor2 outside of this script first. Birkbeck users type: module load motioncor2/v1.0.5, or if raw files are .tif, type: module load motioncor2/v1.1.0. If this still doesn\'t work, check you are on the staging server (ssh -X staging)')
     sys.exit()
     
 #Warning if tiff files are present but flag was not used
-if not(args.tiff_ext) and len(glob.glob('*.tiff')) > 0:
-    print('WARNING: .tiff files are detected but you have not used the -tiff flag when running the script. MotionCor will not work for raw.tiff files if you do not use this flag.') 
+if not(args.tiff_ext) and len(glob.glob('*.tif')) > 0:
+    print('WARNING: .tif files are detected but you have not used the -tiff flag when running the script. MotionCor will not work for raw.tif files if you do not use this flag.') 
     answer = input('Do you want to continue? (y/n): ')
     if not(answer == 'y' or answer == 'Y' or answer == 'y ' or answer == 'Y '):
         sys.exit()
@@ -90,8 +90,8 @@ if not(args.tiff_ext):
             sys.exit()
 
 if args.tiff_ext:
-    if len(glob.glob('*_*_*_*.tiff')) <= 2:
-        print('Can only find 2 or fewer tiff image files to pre-process, are you sure you have your naming convention correct? Try: [Name]_[tilt_series_number]_[tilt_number]_[angle].tiff; e.g. EP_100_001_3deg.tiff')
+    if len(glob.glob('*_*_*_*.tif')) <= 2:
+        print('Can only find 2 or fewer tiff image files to pre-process, are you sure you have your naming convention correct? Try: [Name]_[tilt_series_number]_[tilt_number]_[angle].tif; e.g. EP_100_001_3deg.tif')
         little_data = input('Continue? (y/n): ')
         if not(little_data == 'y' or little_data == 'Y' or little_data == 'y ' or little_data == 'Y '):
             sys.exit()
@@ -112,7 +112,7 @@ if not(args.tiff_ext):
 
 if args.tiff_ext:
     ts_list = list()
-    for i in glob.glob('*_*_*_*.tiff'): 
+    for i in glob.glob('*_*_*_*.tif'): 
         tomon = i.split('_')[1]
         ts_list.append(tomon)
     
@@ -164,11 +164,11 @@ if not(args.tiff_ext):
             os.system('MotionCor2 -inMrc ' + i + ' -outMrc ' + out_mrc + ' -Gain ' + args.gain_ref + ' -Patch 0 0 -Iter 7 -Tol 0.5 ' + rot + flip + '-LogFile ' + i + '.log')
 
 if args.tiff_ext:
-    motion_cor_list = glob.glob('*_*_*_*.tiff')
+    motion_cor_list = glob.glob('*_*_*_*.tif')
         
     for i in motion_cor_list:
         
-        out_mrc = i.replace('.tiff','_Sum.mrc')
+        out_mrc = i.replace('.tif','_Sum.mrc')
         
         if exists(out_mrc):
             print('MotionCor2 already ran on this, skipping...')
@@ -202,7 +202,7 @@ if args.tiff_ext:
 
 #Bails if MotionCor2 has not worked
 if len(glob.glob('*_*_*_*_Sum.mrc')) == 0 and len(glob.glob('TS_*/*_*_*_*_Sum.mrc')) == 0 and args.tiff_ext:
-    print('MotionCor2 has not worked as no _Sum.mrc files exist here, or in TS_ folders. As your input is .tiff files, please check you are using the correct version of MotionCor2. For .tiff files, you must use version 1.1.0 or above.') 
+    print('MotionCor2 has not worked as no _Sum.mrc files exist here, or in TS_ folders. As your input is .tif files, please check you are using the correct version of MotionCor2. For .tif files, you must use version 1.1.0 or above.') 
     sys.exit()
     
 #Bails if data is not dose symmetric tilt scheme
