@@ -4,6 +4,7 @@
 # Make sure this file is executable (chmod +x install.sh)
 
 # Ask user where to install
+echo "You must run this script in the same directory as this script! i.e. 'sh ./install sh', not: 'sh relion4_tomo_robot/install.sh'
 echo "Where would you like to install relion_tomo_robot?"
 DEFAULT_INSTALL_DIR="/opt/relion_tomo_robot"
 echo -ne "Install location (absolute path) (\e[36m${DEFAULT_INSTALL_DIR}\e[0m): "
