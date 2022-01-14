@@ -1,22 +1,37 @@
 #!/usr/bin/env python
-def newstack(TS_number,groups,increment,complete,ts_len):
+
+def newstack(TS_number,groups,increment,complete,ts_len,add_zero):
     
     import os, sys, glob       
     
     print("Newstack is stacking tilt series" + str(TS_number) + " with n_flip " + str(groups) + " and angular increment " + str(increment)) 
               
     #Generate tilt scheme
-    tilts_dict = list()
-    count = 0   
-    for i in range(1,ts_len,groups):
-        offset = i - (count * groups*2)
-        for n in range(0,groups):
-            tilts_dict.append(((offset + n) * increment) - increment)
-        for n in range(0,groups):
-            tilts_dict.append(-((offset + n) * increment))
+    if add_zero == True:
+        tilts_dict = list()
+        tilts_dict.append(0)
+        count = 0   
+        for i in range(2,ts_len,groups): 
+            offset = i - (count * groups*2)
+            for n in range(0,groups):
+                tilts_dict.append(((offset + n) * increment) - increment)
+            for n in range(0,groups):
+                tilts_dict.append(-((offset + n) * increment))
     
-    tilts_dict = tilts_dict[:ts_len]
+        tilts_dict = tilts_dict[:ts_len-1]
+        
+    else:
+        tilts_dict = list()
+        count = 0   
+        for i in range(1,ts_len,groups): 
+            offset = i - (count * groups*2)
+            for n in range(0,groups):
+                tilts_dict.append(((offset + n) * increment) - increment)
+            for n in range(0,groups):
+                tilts_dict.append(-((offset + n) * increment))
     
+        tilts_dict = tilts_dict[:ts_len]
+        
     # Extract tilt image numbers and order them from low to high
     
     image_numbers = glob.glob('TS_' + TS_number + '/*_Sum.mrc')
