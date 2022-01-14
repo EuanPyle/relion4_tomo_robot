@@ -11,15 +11,15 @@ def newstack(TS_number,groups,increment,complete,ts_len,add_zero):
         tilts_dict = list()
         tilts_dict.append(0)
         count = 0   
-        for i in range(2,ts_len,groups): 
+        for i in range(1,ts_len,groups): 
             offset = i - (count * groups*2)
             for n in range(0,groups):
-                tilts_dict.append(((offset + n) * increment) - increment)
-            for n in range(0,groups):
+                tilts_dict.append(((offset + n) * increment))
+            for n in range(0,groups):                    		    
                 tilts_dict.append(-((offset + n) * increment))
     
-        tilts_dict = tilts_dict[:ts_len-1]
-        
+        tilts_dict = tilts_dict[:ts_len]
+                
     else:
         tilts_dict = list()
         count = 0   
@@ -31,7 +31,7 @@ def newstack(TS_number,groups,increment,complete,ts_len,add_zero):
                 tilts_dict.append(-((offset + n) * increment))
     
         tilts_dict = tilts_dict[:ts_len]
-        
+                
     # Extract tilt image numbers and order them from low to high
     
     image_numbers = glob.glob('TS_' + TS_number + '/*_Sum.mrc')
@@ -47,13 +47,13 @@ def newstack(TS_number,groups,increment,complete,ts_len,add_zero):
             
     # For each TS number, match to the angle from tilts_dict in the same idx
     image_tilt_list = [image_numbers_int,tilts_dict]
-    
+        
     
     # Order angles from low to high with corresponding image number
     idx_sorting = sorted(range(len(image_tilt_list[1])), key=lambda k: image_tilt_list[1][k])
     sorted_tilts = sorted(image_tilt_list[1])
     count = 0
-    
+        
     # Create .rawtlt file
     with open("TS_%s/TS_%s.rawtlt" % (TS_number,TS_number), 'w') as rawtlt:
         for i in sorted_tilts:
