@@ -1,4 +1,4 @@
-function generate_metadata(ts_dir,ext,scheme,n_flip,dose,thickness)
+function generate_metadata(ts_dir,ext,scheme,n_flip,dose,thickness,add_zero)
 %This function will generate the metadata needed for RELION 4, including the newst.com & tilt.com files, the tilt order list, and the tomograms_descr.star file
 % Dynamo and IMOD must be loaded in this terminal window for this function to work
 % The function inputs are: generate_metadata(ts_dir, ext, tilt_scheme, n_flip, dose, tomo_thickness)
@@ -11,6 +11,7 @@ function generate_metadata(ts_dir,ext,scheme,n_flip,dose,thickness)
 % NOTE: For bidirectional tilt schemes n_flip should be left either blank: [], or any number you wish.
 % dose = dose per tilt of each image in e/A^2
 % tomo_thickness = unbinned thickness of the tomogram to be generated. We tend to use a value of 3000
+% add_zero = A rarely used option. Enter 'y' to use. Use if the sign of your tilt series flips after the first image and then goes to a different flipping pattern. e.g. if your tilt flipping is 2 but your tilt series was collected in this order: -0,3,6,-3,-6,9,12,-9,-12,15,18,etc.
 %%%%% For newst/tilt.com files, you will be prompeted to either choose to use the template provided (recommended) or if the tomograms produced look strange, you can use your own tilt and newst.com templates after a quick etomo reconstruction. Note, the latter way is error prone.
     
 %%% List of already processed tilt-series
@@ -104,7 +105,7 @@ while true
 		
 	com_file_spoofer(current_ts, x_dim, y_dim, thickness, newst_com, tilt_com);
 	
-	template_tlt=tilt_template(scheme, max_tilt_angle, tilt_increments, n_flip); 
+	template_tlt=tilt_template(scheme, max_tilt_angle, tilt_increments, n_flip, add_zero); 
 	
 	% Reads .tlt files and removes tilts which are missing
 
