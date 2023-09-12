@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/416795267.svg)](https://zenodo.org/badge/latestdoi/416795267)
+
 ## Automated Workflow to Pre-Process Raw Tomography Data for RELION 4.0 
 
 #### Outline
