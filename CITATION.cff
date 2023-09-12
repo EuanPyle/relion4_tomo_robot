@@ -1,0 +1,21 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: relion4_tomo_robot
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Euan
+    family-names: Pyle
+    email: euanpyle@gmail.com
+    affiliation: Birkbeck College
+    orcid: 'https://orcid.org/0000-0002-4633-4917'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.8338109
+repository-code: 'https://github.com/EuanPyle/relion4_tomo_robot'
+version: v1.0.1
+date-released: '2023-11-12'
